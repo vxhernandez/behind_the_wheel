@@ -1,10 +1,7 @@
 # behind_the_wheel
-A database development lifecycle project
+Car Dealership Database Project
 
 ---
-
-## Car Dealership Database Project
-
 This repository serves as a showcase of my expertise in database management and analysis techniques and demonstrates my end-to-end skills in handling the database development lifecycle. From requirements analysis and planning, designing an ERD, executing end-to-end ETL processes, database creation using SQL Server to developing visually intuitive dashboards. 
 
 ### Key Features:
