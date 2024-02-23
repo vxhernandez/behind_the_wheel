@@ -16,3 +16,48 @@ This repository serves as a showcase of my expertise in database management and 
 ### Goals:
 
 This project demonstrates my dedication and commitment to advancing my database development capabilities. It showcases my structured approach to data management and analysis and highlights my ability to manage the entire database development lifecycle.
+
+---
+### Roadmap for the car dealership database project:
+
+1. **Choose a Topic and Define Objectives**
+    - Select a relevant topic for the database project and clearly define the objectives and goals.
+
+2. **Identify Analytical Questions**
+    - Formulate 5 to 10 insightful questions about the chosen data that you aim to answer through analysis.
+
+3. **Design Entity Relationship Diagram (ERD)**
+    - Create a clear and comprehensive ERD to visualize the relationships between entities in the database.
+
+4. **Database Design (DDL)**
+    - Define the database schema and create the necessary tables using Data Definition Language (DDL).
+
+5. **Normalization and Optimization**
+    - Check for normalization issues and optimize the database structure for efficiency.
+
+6. **Database Implementation**
+    - Execute the database creation process based on the finalized DDL.
+
+7. **Design Data Pipeline Diagram**
+    - Visualize the data flow and pipeline architecture for ETL and ELT processes.
+
+8. **Data Acquisition for ETL**
+    - Gather suitable datasets for Extract, Transform, and Load (ETL) processes.
+        - **Extract:**
+            - Utilize flat files, aggregated tables, manual data entry, or existing datasets.
+        - **Transform/Cleansing:**
+            - Apply normalization techniques and conduct data cleansing to ensure data quality.
+
+9. **Perform SQL Analysis**
+    - Answer the analytical questions using SQL programming techniques.
+
+10. **Advanced SQL Programming**
+    - Implement advanced SQL programming concepts to enhance data analysis and manipulation.
+
+11. **Create Tableau Visualizations**
+    - Develop interactive and informative visualizations in Tableau to present the analyzed data.
+
+12. **GitHub Project Portfolio**
+    - Add the completed project, including documentation, code, and visualizations, to your GitHub portfolio for showcase and sharing.
+
+By following this roadmap, you can systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
