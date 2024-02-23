@@ -18,10 +18,11 @@ This repository serves as a showcase of my expertise in database management and 
 This project demonstrates my dedication and commitment to advancing my database development capabilities. It showcases my structured approach to data management and analysis and highlights my ability to manage the entire database development lifecycle.
 
 ### Links:
-<tableau> external site
-DML.sql
-DDL.sql
-link to section: answer questions/code/screenshots
+
+- <tableau> external site
+- DML.sql
+- DDL.sql
+- link to section: answer questions/code/screenshots
 
 ---
 ### Roadmap for the car dealership database project:
