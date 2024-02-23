@@ -58,6 +58,6 @@ This project demonstrates my dedication and commitment to advancing my database 
     - Develop interactive and informative visualizations in Tableau to present the analyzed data.
 
 12. **GitHub Project Portfolio**
-    - Add the completed project, including documentation, code, and visualizations, to your GitHub portfolio for showcase and sharing.
+    - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing.
 
-By following this roadmap, you can systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
+By following this roadmap, I can systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
