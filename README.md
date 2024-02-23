@@ -20,6 +20,8 @@ This project demonstrates my dedication and commitment to advancing my database 
 ### Links:
 
 - <tableau> external site
+- ERD Diagram
+- ETL Diagram
 - DML.sql
 - DDL.sql
 - link to section: answer questions/code/screenshots
