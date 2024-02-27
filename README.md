@@ -2,7 +2,7 @@
 Car Dealership Database Project
 
 ---
-This repository serves as a showcase of my expertise in database management and analysis techniques and demonstrates my end-to-end skills in handling the database development lifecycle. From requirements analysis and planning, designing an ERD, executing end-to-end ETL processes, database creation using SQL Server to developing visually intuitive dashboards. 
+This repository serves as a showcase of my experience in database management and analysis techniques and demonstrates my end-to-end skills in handling the database development lifecycle. From requirements analysis and planning, designing an ERD, executing end-to-end ETL processes, database creation using SQL Server to developing visually intuitive dashboards. 
 
 ### Key Features:
 
@@ -15,7 +15,7 @@ This repository serves as a showcase of my expertise in database management and 
 
 ### Goals:
 
-This project demonstrates my dedication and commitment to advancing my database development capabilities. It showcases my structured approach to data management and analysis and highlights my ability to manage the entire database development lifecycle.
+Walk through the various steps outlined in my roadmap and in order to learn and build my skills as an SQL Developer. Taking a structured approach to data management.
 
 ### Links:
 
@@ -69,4 +69,4 @@ This project demonstrates my dedication and commitment to advancing my database 
 12. **GitHub Project Portfolio**
     - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing.
 
-By following this roadmap, I can systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
+By following this roadmap, I was able to systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
