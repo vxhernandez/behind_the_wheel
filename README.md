@@ -29,6 +29,8 @@ Follow the sequential steps outlined in my roadmap to enhance my proficiency as 
 ---
 ### Roadmap for the car dealership database project:
 
+By following this roadmap, I was able to systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
+
 1. **Choose a Topic and Define Objectives**
     - Select a relevant topic for the database project and clearly define the objectives and goals.
 
@@ -68,5 +70,3 @@ Follow the sequential steps outlined in my roadmap to enhance my proficiency as 
 
 12. **GitHub Project Portfolio**
     - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing.
-
-By following this roadmap, I was able to systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
