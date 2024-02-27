@@ -15,7 +15,7 @@ This repository serves as a showcase of my experience in database management and
 
 ### Goals:
 
-Walk through the various steps outlined in my roadmap and in order to learn and build my skills as an SQL Developer. Taking a structured approach to data management.
+Follow the sequential steps outlined in my roadmap to enhance my proficiency as an SQL Developer.
 
 ### Links:
 
