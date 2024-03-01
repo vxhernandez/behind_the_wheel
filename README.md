@@ -70,9 +70,14 @@ By following this roadmap, I was able to systematically progress through each st
 
 12. **GitHub Project Portfolio**
     - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing.
-      
+
 13. **Lessons Learned**
-    - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing.
+    - What insights have you gained from your involvement in this project?
+    - How would you approach this project differently in hindsight?
+    - Pinpoint areas in need of enhancement or refinement.
 
 14. **Next Steps**
-    - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing
+    - Gather feedback from colleagues and experts in the field to pinpoint avenues for improvement.
+    - Enumerate additional tasks or features that could enrich the SQL experience within the project.
+
+
