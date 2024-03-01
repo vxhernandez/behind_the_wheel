@@ -19,8 +19,8 @@ Follow the sequential steps outlined in my roadmap to enhance my proficiency as 
 
 ### Links:
 
-- [Behind_the_wheel Tablea Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
-- ERD Diagram
+- [Behind_the_wheel Tableau Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
+- ERD Diagram [Contribution guidelines for this project](docs/CONTRIBUTING.md)
 - ETL Diagram
 - DML.sql
 - DDL.sql
