@@ -20,10 +20,11 @@ Follow the sequential steps outlined in my roadmap to enhance my proficiency as 
 ### Links:
 
 - [Behind_the_wheel Tableau Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
-- ERD Diagram [Contribution guidelines for this project](docs/CONTRIBUTING.md)
+- [DDL]([docs/CONTRIBUTING.md](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql))
 - ETL Diagram
+- ERD Diagram 
 - DML.sql
-- DDL.sql
+- T-SQL
 - link to section: answer questions/code/screenshots
 
 ---
