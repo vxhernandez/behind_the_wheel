@@ -70,3 +70,9 @@ By following this roadmap, I was able to systematically progress through each st
 
 12. **GitHub Project Portfolio**
     - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing.
+      
+13. **Lessons Learned**
+    - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing.
+
+14. **Next Steps**
+    - Add the completed project, including documentation, code, and visualizations, to my GitHub portfolio for showcase and sharing
