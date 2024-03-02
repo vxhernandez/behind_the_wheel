@@ -2,7 +2,7 @@
 Car Dealership Database Project
 
 ---
-This repository serves as a showcase of my experience in database management and analysis techniques and demonstrates my end-to-end skills in handling the database development lifecycle. From requirements analysis and planning, designing an ERD, executing end-to-end ETL processes, database creation using SQL Server to developing visually intuitive dashboards. 
+This repository serves as a showcase of my experience in database management, analysis techniques and demonstrates my end-to-end skills in handling the database development lifecycle. 
 
 ### Key Features:
 
@@ -11,25 +11,30 @@ This repository serves as a showcase of my experience in database management and
 - **Data Cleaning and ETL:** Conducted data cleaning and ETL (Extract, Transform, Load) processes to prepare the data for analysis.
 - **Exploratory Data Analysis (EDA):** Analyzed the data to identify patterns, trends, and insights that drive decision-making.
 - **Analytical Questions:** Defined and answered pertinent analytical questions to uncover actionable insights.
-- **Tools and Technologies:** Utilized various tools and technologies, including Notion.io for requirements analysis, Lucidchart for designing Entity-Relationship Diagrams (ERD), SSIS for ETL processes, SQL Server for database creation, Excel for data cleansing, and Tableau for developing a visually intuitive dashboard. (add dataset website and Mockaroo!
+- **Tools and Technologies:**
+    - Notion.io for requirements analysis
+    - Lucidchart for designing the ERD and ETL Diagrams
+    - SSIS for the ETL processes
+    - SQL Server for database creation
+    - Excel for data cleansing
+    - Tableau for developing dashboard
 
 ### Goals:
 
-Follow the sequential steps outlined in my roadmap to enhance my proficiency as an SQL Developer.
+Follow the sequential steps outlined in the roadmap to enhance my proficiency as an SQL Developer.
 
 ### Links:
 
-- [Behind_the_wheel Tableau Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
-- [DDL]([docs/CONTRIBUTING.md](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql)
-- ETL Diagram
-- ERD Diagram 
+- ERD Diagram
+- [ETL Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/Data%20Pipeline%20Diagram.jpeg)
+- Data used: [Kaggle Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
+- [DDL](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql)
 - [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
 - [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+- [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
 - link to section: answer questions/code/screenshots
-- Data used: [Kaggle Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
 
----
-### Roadmap for the car dealership database project:
+### Roadmap for the project:
 
 By following this roadmap, I was able to systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
 
