@@ -24,7 +24,7 @@ Follow the sequential steps outlined in my roadmap to enhance my proficiency as 
 - ETL Diagram
 - ERD Diagram 
 - [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
-- T-SQL
+- [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
 - link to section: answer questions/code/screenshots
 - Data used: [Kaggle Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
 
