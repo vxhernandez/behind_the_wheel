@@ -26,7 +26,7 @@ Follow the sequential steps outlined in my roadmap to enhance my proficiency as 
 - DML.sql
 - T-SQL
 - link to section: answer questions/code/screenshots
-- Data used: [Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023), [Mockaroo]([url](https://www.mockaroo.com/)
+- Data used: [Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
 - Dataset 
 
 ---
