@@ -20,14 +20,13 @@ Follow the sequential steps outlined in my roadmap to enhance my proficiency as 
 ### Links:
 
 - [Behind_the_wheel Tableau Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
-- [DDL]([docs/CONTRIBUTING.md](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql))
+- [DDL]([docs/CONTRIBUTING.md](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql)
 - ETL Diagram
 - ERD Diagram 
-- DML.sql
+- [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
 - T-SQL
 - link to section: answer questions/code/screenshots
-- Data used: [Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
-- Dataset 
+- Data used: [Kaggle Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
 
 ---
 ### Roadmap for the car dealership database project:
