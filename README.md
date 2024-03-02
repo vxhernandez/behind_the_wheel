@@ -25,7 +25,7 @@ Follow the sequential steps outlined in the roadmap to enhance my proficiency as
 
 ### Links:
 
-- ERD Diagram
+- [ERD Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/entity_relationship_diagram.jpeg)
 - [ETL Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/Data%20Pipeline%20Diagram.jpeg)
 - Data used: [Kaggle Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
 - [DDL](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql)
