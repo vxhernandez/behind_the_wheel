@@ -59,8 +59,8 @@ By following this roadmap, I was able to systematically progress through each st
 7. **Design Data Pipeline Diagram**
     - Visualize the data flow and pipeline architecture for ETL and ELT processes.
 
-8. **Data Acquisition for ETL**
-    - Gather suitable datasets for Extract, Transform, and Load (ETL) processes.
+8. **Data Acquisition for ETL/ELT**
+    - Gather suitable datasets for Extract, Transform, and Load (ETL) processes and or Extract Load Transform (ELT)
         - **Extract:**
             - Utilize flat files, aggregated tables, manual data entry, or existing datasets.
         - **Transform/Cleansing:**
