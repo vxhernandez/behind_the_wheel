@@ -3,7 +3,7 @@
 /******************* Identified Analytical Questions ***********************/
 /***************************************************************************/
 
---1. What is the total sales by dealership?*
+--1. What is the total sales amount by dealership?*
 
 SELECT a.DEALERSHIP_ID, c.DEALERSHIP_NAME AS Dealership, SUM(b.SALE_PRICE) AS 'Total Sales'
 FROM  CARS AS a INNER JOIN
@@ -12,7 +12,7 @@ FROM  CARS AS a INNER JOIN
 GROUP BY a.DEALERSHIP_ID, c.DEALERSHIP_NAME
 ORDER BY a.DEALERSHIP_ID;
 
---2. What is the average sale price of cars sold by each dealership?*
+--2. What is the average sale price of cars sold by each dealership?
 
 SELECT d.DEALERSHIP_ID, d.DEALERSHIP_NAME, AVG(s.SALE_PRICE) AS avg_price, SUM(s.SALE_PRICE) AS total_sales
 FROM  CARS AS c INNER JOIN
@@ -21,7 +21,7 @@ FROM  CARS AS c INNER JOIN
 GROUP BY d.DEALERSHIP_ID, d.DEALERSHIP_NAME
 ORDER BY d.DEALERSHIP_ID
 
---3. What is the percentage of cars sold by each dealership compared to total sales?*
+--3. What is the percentage of cars sold by each dealership compared to total sales?
 
 SELECT c.DEALERSHIP_ID, COUNT(*) AS cars_sold, SUM(s.SALE_PRICE) AS dealership_sales, SUM(s.SALE_PRICE) /
              (SELECT SUM(SALE_PRICE) AS sum_price
@@ -30,7 +30,7 @@ FROM  SALES AS s INNER JOIN
          CARS AS c ON s.CAR_ID = c.CAR_ID
 GROUP BY c.DEALERSHIP_ID
 
---4. What are the number of cars sold by each salesperson?*
+--4. What are the number of cars sold by each salesperson?
 
 SELECT TOP (25) { fn CONCAT(b.FIRST_NAME, ' ', b.LAST_NAME) } AS sales_person, COUNT(*) AS total_cars_sold
 FROM  SALES AS a INNER JOIN
