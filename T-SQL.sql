@@ -1,6 +1,5 @@
 /***************************************************************/
---Triggers
-/***************************************************************/
+--Trigger
 
 --This trigger logs inserts into the Customers table and adds a row into a the customer_audit table.
 --create an audit table
@@ -47,10 +46,9 @@ SELECT * from customer_audit;
 SELECT * 
 FROM sys.triggers;
 
+/***************************************************************/
 
-/***************************************************************/
---Stored Procedures
-/***************************************************************/
+--Stored Procedure
 
 --Allows the user to enter a sale_id, and see the sale_price, sale_date and car_id from the Sales table by entering sale_id parameter.
 
@@ -76,6 +74,7 @@ EXEC dbo.uspShowSalePriceBySaleID 172;
 GO
 
 /***************************************************************/
+--Stored Procedure
 
 --Takes sales_person_id and displays their total sales and vehicle information.
 
@@ -108,6 +107,7 @@ EXEC dbo.uspTotalsBySalesPerson 356;
 GO
 
 /***************************************************************/
+--Stored Procedure
 
 /*
 
