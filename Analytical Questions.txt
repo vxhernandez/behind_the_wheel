@@ -1,4 +1,4 @@
-Select questions were used to create the dashboard. They are identified with an *.
+Select questions were used to create the dashboard. They are identified with an asterisk.
 
 --1. What is the total sales by dealership?*
 --2. What is the average sale price of cars sold by each dealership?*
