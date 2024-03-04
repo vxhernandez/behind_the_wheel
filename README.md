@@ -14,7 +14,7 @@ This repository serves as a showcase of my experience in database management, an
 - **Tools and Technologies:**
     - Notion.io for requirements analysis
     - Lucidchart for designing the ERD and ETL Diagrams
-    - SSIS for the ETL processes
+    - SSIS/Visual Studios for the ETL processes
     - SQL Server for database creation
     - Excel for data cleansing
     - Tableau for developing dashboard
