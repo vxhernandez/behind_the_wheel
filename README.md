@@ -47,9 +47,8 @@ By following this roadmap, I was able to systematically progress through each st
     - In designing the ERD for the car dealership database, I identify the primary entities involved, such as "Cars," "Customers," "Sales," "Salespeople," "Dealerships". Relationships between entities are depicted by lines connecting them, with cardinality indicators to specify the nature of the relationship (one-to-one, one-to-many, or many-to-many).
     - For example, the "Cars" entity has attributes such as "car_id," "make," "model," "year," "price," and "color." And has relationships with other entities such as "Sales" (indicating the sale of a specific car) and "Dealerships" (denoting the dealership that sells the car).
     - The "Customers" includes attributes "customer_ID," "first_name," "last_name," "email," and "primary_phone," and will be linked to the "Sales" entity to record customer purchases. The "Salespeople" entity will contain attributes such as "sales_person_id," "first_name," "last_ame," and is associated with the "Sales" entity to track sales made by each salesperson.
-    
-    The ERD, ensures all relevant entities and their relationships are accurately represented, providing a clear and comprehensive overview of the database structure.
-    [ERD Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/entity_relationship_diagram.jpeg)
+    - The ERD, ensures all relevant entities and their relationships are accurately represented, providing a clear and comprehensive overview of the database structure.
+    - [ERD Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/entity_relationship_diagram.jpeg)
 
 4. **Database Design (DDL)**
     - In the database design phase, I defined the database schema and created the necessary tables using Data Definition Language (DDL). This involved translating the conceptual ERD into a concrete database structure by specifying the attributes and data types for each table, as well as defining primary keys, foreign keys and constraints.
@@ -79,8 +78,12 @@ By following this roadmap, I was able to systematically progress through each st
 
           ```
          - Customers Table: Utilized Mockaroo website to generate customer data and performed a direct flat file import into the customers table using SQL Server Import Wizard. Mockaroo is a website that generates realistic-looking data for testing, development purposes and can be used to populate databases.
-         - ![Mockaroo! screenshot]([image link](https://www.notion.so/GitHub-Roadmap-5a6cdd3a325044a8aa5163605adefe4b?pvs=4#4f0d58c2a40f4e0d98c7ecf8adc0d3fe))
-    - ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/501df90a-52fa-4136-bab4-88fe72498c33/0e249df1-443e-4138-96f8-1cef8200a7cd/Untitled.png)
+         - ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/967c8e34-ba05-41c8-8051-1993e158fae0)
+
+         - Cars Table: Populated the cars table from Kaggle dataset containing make, model, year, and MSRP columns. Connected to SSIS using Visual Studio, created an SSIS package to remove used cars by implementing a Data Flow Task with a conditional split to retain only "new car" sales data, aligning with the database focus. 
+
+
+
 
 
 
