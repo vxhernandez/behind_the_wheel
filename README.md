@@ -81,7 +81,7 @@ By following this roadmap, I was able to systematically progress through each st
            
          - Manual Data Creation: To populate the dealership_id, sale_price, and sale_date where data was unavailable, SQL scripts were used to generate synthetic data. This SQL code creates a loop that iterates over the number of records in the cars table. Within each iteration, it generates a random integer between 1 and 8 and assigns it to the variable @i. Then, it updates the dealership_id column in the staging.cars table, setting it to the value of @i, but only for rows where car_id equals the current value of @Counter and dealership_id is equal to 9. Finally, it increments the counter @Counter by 1 to move to the next iteration. Essentially, it's assigning random dealership IDs to a subset of cars in the staging table, specifically for each dealership_id, in this case 9.
          
-         - ```sql
+            ```sql
            DECLARE @Counter INT 
             DECLARE @i INT
             SET @Counter=1
@@ -94,8 +94,10 @@ By following this roadmap, I was able to systematically progress through each st
             	and dealership_id = 9
                 SET @Counter  = @Counter  + 1
                 END
+            
             ```
-          -  This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -2. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
+
+        - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -2. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
 
         ```sql
 
