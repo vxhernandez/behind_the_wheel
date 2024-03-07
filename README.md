@@ -97,7 +97,7 @@ By following this roadmap, I was able to systematically progress through each st
             
             ```
 
-        - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -2. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
+        - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -10. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
 
         ```sql
 
@@ -122,13 +122,13 @@ By following this roadmap, I was able to systematically progress through each st
         - Staging Database: All aforementioned processes were performed within a staging database.
         - Migration to Target Database: Once data was cleansed and transformed in the staging database, it was migrated to the target database for analysis using SQL queries.
 
+7. **Normalization and Optimization and ELT**
+    - During the normalization and optimization phase, in the database structure to identify any normalization issues and implemented optimizations to enhance efficiency and performance.
+    - I reviewed the database schema to ensure compliance with normalization principles, aiming to eliminate redundancy and improve data integrity. I reviewed the tables for any instances of data duplication or dependency anomalies, such as insertion, update, and deletion anomalies.
 
-
-9. **Perform SQL Analysis**
-    - Answer the analytical questions using SQL programming techniques.
-
-10. **Advanced SQL Programming**
-    - Implement advanced SQL programming concepts to enhance data analysis and manipulation.
+8. **Perform SQL Analysis**
+    - Utilized various SQL programming techniques including GROUP BY, HAVING, window functions (PARTITION BY), Common Table Expressions (CTEs), and Pivot tables to effectively address and answer all 25 analytical questions.
+    - [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
 
 11. **Create Tableau Visualizations**
     - Develop interactive and informative visualizations in Tableau to present the analyzed data.
@@ -145,4 +145,188 @@ By following this roadmap, I was able to systematically progress through each st
     - Gather feedback from colleagues and experts in the field to pinpoint avenues for improvement.
     - Enumerate additional tasks or features that could enrich the SQL experience within the project.
 
+**PART II - Advanced SQL Programming**
+    - Implement advanced SQL programming concepts to enhance data analysis and functionality to the database using views, triggers and stored procedures. 
+    -Views
+        - Total sales by salesperson View, calculates the total sales made by each salesperson. It joins the `sales` table with the `SALES_PEOPLE` table on the `SALES_PERSON_ID` column to retrieve the salesperson's first name and last name. Then, it aggregates the sales prices using the `SUM()` function, grouped by the salesperson's ID, last name, and first name.
+        ```sql
+
+        CREATE VIEW TotalSalesBySalesperson AS
+SELECT
+    s.SALES_PERSON_ID,
+    sp.LAST_NAME,
+    sp.FIRST_NAME,
+    SUM(s.SALE_PRICE) AS TotalSales
+FROM
+    sales s
+JOIN
+    SALES_PEOPLE sp ON s.SALES_PERSON_ID = sp.SALES_PERSON_ID
+GROUP BY
+    s.SALES_PERSON_ID,
+    sp.LAST_NAME,
+    sp.FIRST_NAME;
+
+        ```
+        - Sales by dealership View, provides a summary of sales by dealership. It joins the `CARS`, `SALES`, and `DEALERSHIPS` tables to gather information about each sale, including the dealership ID, dealership name, and total sales. The `SUM()` function is used to aggregate the sale prices, and the results are formatted as currency using the `FORMAT()` function.
+        ```sql
+        create view [sales_by_dealership] AS
+SELECT 
+a.DEALERSHIP_ID, 
+c.DEALERSHIP_NAME as Dealership, 
+format(SUM(b.SALE_PRICE), 'C2') AS 'Total Sales'
+FROM dbo.CARS AS a 
+INNER JOIN SALES AS b ON a.CAR_ID = b.CAR_ID 
+INNER JOIN DEALERSHIPS AS c ON a.DEALERSHIP_ID = c.DEALERSHIP_ID
+GROUP BY a.DEALERSHIP_ID, c.DEALERSHIP_NAME;
+
+        ```
+        
+        - The 3rd view combines data from multiple tables to present comprehensive sales information. It joins the `CUSTOMERS`, `SALES`, `CARS`, `SALES_PEOPLE`, and `DEALERSHIPS` tables to display details such as customer name, salesperson name, sale date, sale price, car make, model, year, manufacturer's suggested retail price (MSRP), and dealership name. The `CONCAT()` function is used to concatenate first and last names, providing clear identification of customers and salespersons.
+
+        ```sql
+
+        create view [all_sales_info] AS
+select 
+concat(a.first_name, ' ', a.last_name) as customer,
+concat(d.first_name, ' ', d.last_name) AS sales_person,
+b.SALE_DATE, 
+b.SALE_PRICE, 
+c.MAKE, 
+c.MODEL, 
+c.YEAR, 
+c.MSRP,
+e.DEALERSHIP_NAME
+from CUSTOMERS a
+join sales b on a.CUSTOMER_ID = b.CUSTOMER_ID
+join cars c on b.CAR_ID = c.CAR_ID
+join SALES_PEOPLE d on b.SALES_PERSON_ID = d.SALES_PERSON_ID 
+join DEALERSHIPS e on c.DEALERSHIP_ID = e.DEALERSHIP_ID;
+
+```
+        
+    - Triggers
+        Thr `CustomerChangeLog` trigger on the `customers` table logs inserts into the `customers` table by capturing the inserted data and adding a row to the `customer_audit` table, which serves as an audit log. First, it creates the `customer_audit` table with columns to store the audit information such as `AuditID`, `CustomerID`, `CustomerFN`, `CustomerLN`, and `TimeAdded`. Then, it creates the trigger `CustomerChangeLog`, specifying that it should execute `AFTER INSERT` on the `customers` table. Inside the trigger, it inserts the relevant information (`CustomerID`, `CustomerFN`, `CustomerLN`, and current timestamp) into the `customer_audit` table using the `INSERTED` pseudo-table to access the newly inserted rows. After setting up the trigger, the script retrieves existing data from the `CUSTOMERS` table to demonstrate its contents and then queries the `customer_audit` table to display the audit log entries. Finally, it retrieves all triggers in the database using the `sys.triggers` system view.
+        ```sql
+        --This trigger logs inserts into the Customers table and adds a row into a the customer_audit table.
+--create an audit table
+CREATE TABLE dbo.customer_audit (
+AuditID INT IDENTITY(1, 1) PRIMARY KEY,
+CustomerID int,
+CustomerFN nvarchar(100),
+CustomerLN nvarchar(100),
+TimeAdded datetime2
+);
+GO
+
+--create a trigger that logs inserts to the customer table
+CREATE or ALTER TRIGGER dbo.CustomerChangeLog
+ON dbo.customers
+AFTER INSERT
+AS
+BEGIN
+    INSERT INTO dbo.customer_audit ( 
+        CustomerID,
+        CustomerFN,
+        CustomerLN,
+        TimeAdded
+    )
+    SELECT 
+        CUSTOMER_ID,
+        FIRST_NAME,
+        LAST_NAME,
+        GETDATE()
+    FROM
+        INSERTED;
+END;
+GO
+
+--view existing data in customers table
+SELECT * FROM dbo.CUSTOMERS
+ORDER BY customer_id DESC;
+GO
+
+--to see the changes in the audit log
+SELECT * from customer_audit;
+
+
+
+        ```
+        
+    - Stored Procedures
+        - This stored procedure allows the user to enter a sale_id, and see the sale_price, sale_date and car_id from the Sales table by entering sale_id parameter.
+        ```sql
+        
+        CREATE or alter PROCEDURE dbo.uspShowSalePriceBySaleID
+            @paramSaleID int
+        AS
+        SELECT	
+        dbo.SALES.SALE_ID AS 'Sale ID',
+        dbo.SALES.SALE_DATE 'Date of Sale',
+        format(dbo.SALES.SALE_PRICE, 'C2') AS 'Sold For',
+        dbo.SALES.CAR_ID AS 'Car Id'
+        
+        FROM dbo.SALES 
+        		
+        WHERE dbo.SALES.SALE_ID = @paramSaleID
+        ;
+        GO
+        
+        -- execute the stored procedure with various parameters
+        EXEC dbo.uspShowSalePriceBySaleID 22;
+        GO
+        EXEC dbo.uspShowSalePriceBySaleID 172;
+        GO
+        
+        ```
+        - The `uspTotalsBySalesPerson` stored procedure, retrieves sales information for a particular salesperson identified by their `sales_person_id`. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided `sales_person_id` parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the `sales_person_id` or the `last_name` of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
+        ```sql
+        CREATE OR ALTER PROCEDURE dbo.uspTotalsBySalesPerson
+--Both @paramSalesPersonId and @paramSalesPersonLN parameters are declared with default values of NULL, allowing them to be optionally provided.
+    @paramSalesPersonId INT = NULL,
+    @paramSalesPersonLN VARCHAR(100) = NULL
+AS
+BEGIN
+
+  -- Check if both parameters are NULL
+    IF @paramSalesPersonId IS NULL AND @paramSalesPersonLN IS NULL
+    BEGIN
+        -- Raises an error and returns a custom error message
+        RAISERROR('At least one parameter must be provided.', 16, 1);
+        RETURN;
+    END;
+
+    -- Execute the main query using the provided sales_person_id parameter or last_name
+    SELECT 
+        b.sales_person_id AS 'Sales Person ID',
+		CONCAT(c.FIRST_NAME, ' ', c.LAST_NAME) AS 'Sales Person',
+        a.DEALERSHIP_ID AS 'Dealership',
+        a.make AS 'Vehicle Make', 
+        a.model AS 'Vehicle Model',
+        COALESCE(a.color, 'Color Not Listed') AS 'Vehicle Color',
+        FORMAT(a.msrp, 'C2') AS 'Vehicle MSRP',
+        FORMAT(b.sale_price, 'C2') AS 'Sale Price',
+        FORMAT(SUM(b.sale_price) OVER (PARTITION BY b.sales_person_id ORDER BY b.sale_date), 'C2') AS 'Sales Total',
+        b.SALE_DATE AS 'Date of Sale'
+    FROM   
+        cars a
+    JOIN 
+        sales b ON a.car_id = b.car_id
+    JOIN
+        SALES_PEOPLE c ON b.SALES_PERSON_ID = c.SALES_PERSON_ID
+    WHERE 
+    a.CAR_ID IN (SELECT car_ID FROM sales)
+    AND (@paramSalesPersonId IS NULL OR b.SALES_PERSON_ID = @paramSalesPersonId)
+    AND (@paramSalesPersonLN IS NULL OR c.last_name = @paramSalesPersonLN)
+    ORDER BY 
+        b.sale_date;
+END;
+
+
+EXEC dbo.uspTotalsBySalesPerson @paramSalesPersonId = 75;
+GO
+EXEC dbo.uspTotalsBySalesPerson @paramSalesPersonLN = 'Nowick';
+GO
+
+        ```
+   
 - [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
