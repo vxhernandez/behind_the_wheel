@@ -64,7 +64,7 @@ By following this roadmap, I was able to systematically progress through each st
 6. **Data Acquisition for ETL/ELT**
     - Gather suitable datasets for Extract, Transform, and Load (ETL) processes and or Extract Load Transform (ELT)
         - Dealership Table: Manually inserted data for 8 dealerships using INSERT statements:
-        - INSERT INTO DEALERSHIPS (DEALERSHIP_NAME, ADDRESS, CITY, STATE, POSTAL_CODE, PRIMARY_PHONE)
+        - '''INSERT INTO DEALERSHIPS (DEALERSHIP_NAME, ADDRESS, CITY, STATE, POSTAL_CODE, PRIMARY_PHONE)
             VALUES
             ('Value Voyage Auto-Courtland', '15423 I-10', 'Houston', 'TX', '78249', '210-441-7785'),
             ('Value Voyage Auto-North', '6907 Southwest Fwy', 'Houston', 'TX', '77090', '(281) 209-1333'),
@@ -73,7 +73,7 @@ By following this roadmap, I was able to systematically progress through each st
             ('Value Voyage Auto-Sugarland', '4200 Elkins Rd.', 'Houston', 'TX', '77479', '281-448-7744'),
             ('Value Voyage Auto-SouthHouston', '6909 Southwest Fwy', 'Houston', 'TX', '77074', NULL),
             ('Value Voyage Auto-BaylandPark', '13100 Gulf Fwy', 'Houston', 'TX', '77034', '(281) 481-4299'),
-            ('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');
+            ('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');'''
 
 
 9. **Perform SQL Analysis**
