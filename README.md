@@ -54,9 +54,8 @@ By following this roadmap, I was able to systematically progress through each st
     - In the data pipeline design phase, I visualized the end-to-end data flow and pipeline architecture for the Extract, Transform, Load (ETL) and Extract, Load, Transform (ELT) processes. The pipeline encompasses various data sources, cleansing techniques, and database operations to prepare the data for analysis and visualization.
     - [ETL Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/Data%20Pipeline%20Diagram.jpeg)
 
-6. **Data Acquisition for ETL/ELT**
-    - Gather suitable datasets for Extract, Transform, and Load (ETL) processes and or Extract Load Transform (ELT)
-        - Dealership Table: Manually inserted data for 8 dealerships using INSERT statements:
+6. **Data Acquisition and ETL/ELT**
+    - Dealership Table: Manually inserted data for 8 dealerships using INSERT statements:
         - ```sql
 
           INSERT INTO DEALERSHIPS (DEALERSHIP_NAME, ADDRESS, CITY, STATE, POSTAL_CODE, PRIMARY_PHONE)
@@ -133,17 +132,18 @@ By following this roadmap, I was able to systematically progress through each st
 
 13. **Lessons Learned**
     - Recognizing the time constraints associated with creating data, I've learned the importance of leveraging online datasets. This approach not only saves time but also provides diverse and real-world data for analysis.
-    - Enrich Data Entities: To deepen analysis and extract richer insights, I've acknowledged the need to augment existing data with additional attributes. This will enhance the granularity of analysis and enable more comprehensive understanding of each entity.
+    - To deepen analysis and extract richer insights, I've acknowledged the need to augment existing data with additional attributes. This will enhance the granularity of analysis and enable more comprehensive understanding of each entity.
 
 14. **Next Steps**
     - Gather feedback from colleagues and experts in the field to pinpoint avenues for improvement.
-    - Develop Advanced SQL Programming to add value to the database and deepen understanding of stored procedure development.
+    - Develop Advanced SQL Programming to add value to the database and deepen understanding of stored procedures, triggers, views, and function development.
     - Delve into query execution plans to identify bottlenecks and optimize performance effectively.
     - Understand the impact of indexes on query performance and learn to leverage them efficiently to tune queries.
     - Review and rewrite queries to maximize efficiency, minimize resource consumption, and enhance overall database performance.
 
 **PART II - Advanced SQL Programming**
-    - Implement advanced SQL programming concepts to enhance data analysis and functionality to the database using views, triggers and stored procedures. 
+    - In part II, I implemented advanced SQL programming concepts to enhance data analysis and functionality to the database using views, triggers and stored procedures. 
+    - [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
     - Views
         - Total sales by salesperson View, calculates the total sales made by each salesperson. It joins the `sales` table with the `SALES_PEOPLE` table on the `SALES_PERSON_ID` column to retrieve the salesperson's first name and last name. Then, it aggregates the sales prices using the `SUM()` function, grouped by the salesperson's ID, last name, and first name.
         - Sales by dealership View, provides a summary of sales by dealership. It joins the `CARS`, `SALES`, and `DEALERSHIPS` tables to gather information about each sale, including the dealership ID, dealership name, and total sales. The `SUM()` function is used to aggregate the sale prices, and the results are formatted as currency using the `FORMAT()` function.        
@@ -154,4 +154,4 @@ By following this roadmap, I was able to systematically progress through each st
   	- The first stored procedure, uspShowSalePriceBySaleID, retrieves specific information about a sale based on the provided sale_id parameter. It selects the sale ID, sale date, sale price (formatted as currency), and car ID from the SALES table where the sale_id matches the input parameter. This procedure allows users to quickly access details of a specific sale by providing the sale ID. delete the 1st stored procedure as the 2nd one is an improvement on the first one.
         - The `uspTotalsBySalesPerson` stored procedure, retrieves sales information for a particular salesperson identified by their `sales_person_id`. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided `sales_person_id` parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the `sales_person_id` or the `last_name` of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
    
-- [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+
