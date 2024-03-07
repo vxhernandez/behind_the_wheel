@@ -8,7 +8,7 @@ This repository serves as a showcase of my experience in database management, an
 
 - **Database Design:** Designed a robust database schema and created tables to efficiently store data.
 - **Data Population:** Populated the database with relevant data and ensured data integrity.
-- **Data Cleaning and ETL:** Conducted data cleaning and ETL (Extract, Transform, Load) processes to prepare the data for analysis.
+- **Data Cleansing and ETL:** Conducted data cleaning and ETL (Extract, Transform, Load) processes to prepare the data for analysis.
 - **Exploratory Data Analysis (EDA):** Analyzed the data to identify patterns, trends, and insights that drive decision-making.
 - **Analytical Questions:** Defined and answered pertinent analytical questions to uncover actionable insights.
 - **Tools and Technologies:**
@@ -30,22 +30,30 @@ Follow the sequential steps outlined in the roadmap to enhance my proficiency as
 - Data used: [Kaggle Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
 - [DDL](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql)
 - [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
-- [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
 - [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
-- link to section: answer questions/code/screenshots
 
 ### Roadmap for the project:
 
 By following this roadmap, I was able to systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
 
 1. **Choose a Topic and Define Objectives**
-    - Select a relevant topic for the database project and clearly define the objectives and goals.
+    - This database project focuses on car dealership sales with the objective to design and implement an efficient database system tailored to Value Voyage Auto’s needs. Through this project, I aim to deliver a valuable asset empowering the car dealership to enhance sales strategies, customer satisfaction, and overall business performance.
 
 2. **Identify Analytical Questions**
-    - Formulate 5 to 10 insightful questions about the chosen data that you aim to answer through analysis.
+    - In selecting 25 analytical questions for the car dealership database project, I aim to delve into various aspects of sales, customer behavior, and employee performance. By addressing these analytical questions through data analysis and interpretation, I aim to gain valuable insights that can inform strategic decision-making, enhance operational efficiency, and drive business growth.
 
 3. **Design Entity Relationship Diagram (ERD)**
-    - Create a clear and comprehensive ERD to visualize the relationships between entities in the database.
+    - - The creation of a Entity Relationship Diagram (ERD) is crucial for visualizing the relationships between entities within the car dealership database. The ERD serves as a blueprint that illustrates the structure of the database, including the various entities, their attributes, and the relationships between them.
+    
+    In designing the ERD for the car dealership database, I identify the primary entities involved, such as "Cars," "Customers," "Sales," "Salespeople," "Dealerships". Relationships between entities are depicted by lines connecting them, with cardinality indicators to specify the nature of the relationship (one-to-one, one-to-many, or many-to-many).
+    
+    For example, the "Cars" entity has attributes such as "car_id," "make," "model," "year," "price," and "color." And has relationships with other entities such as "Sales" (indicating the sale of a specific car) and "Dealerships" (denoting the dealership that sells the car).
+    
+    The "Customers" includes attributes "customer_ID," "first_name," "last_name," "email," and "primary_phone," and will be linked to the "Sales" entity to record customer purchases. The "Salespeople" entity will contain attributes such as "sales_person_id," "first_name," "last_ame," and is associated with the "Sales" entity to track sales made by each salesperson.
+    
+    The ERD, ensures all relevant entities and their relationships are accurately represented, providing a clear and comprehensive overview of the database structure.
+    
+    <LINK TO ERD>
 
 4. **Database Design (DDL)**
     - Define the database schema and create the necessary tables using Data Definition Language (DDL).
@@ -87,4 +95,4 @@ By following this roadmap, I was able to systematically progress through each st
     - Gather feedback from colleagues and experts in the field to pinpoint avenues for improvement.
     - Enumerate additional tasks or features that could enrich the SQL experience within the project.
 
-
+- [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
