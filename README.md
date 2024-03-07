@@ -44,35 +44,37 @@ By following this roadmap, I was able to systematically progress through each st
 
 3. **Design Entity Relationship Diagram (ERD)**
     - The creation of a Entity Relationship Diagram (ERD) is crucial for visualizing the relationships between entities within the car dealership database. The ERD serves as a blueprint that illustrates the structure of the database, including the various entities, their attributes, and the relationships between them.
-    
-    In designing the ERD for the car dealership database, I identify the primary entities involved, such as "Cars," "Customers," "Sales," "Salespeople," "Dealerships". Relationships between entities are depicted by lines connecting them, with cardinality indicators to specify the nature of the relationship (one-to-one, one-to-many, or many-to-many).
-    
-    For example, the "Cars" entity has attributes such as "car_id," "make," "model," "year," "price," and "color." And has relationships with other entities such as "Sales" (indicating the sale of a specific car) and "Dealerships" (denoting the dealership that sells the car).
-    
-    The "Customers" includes attributes "customer_ID," "first_name," "last_name," "email," and "primary_phone," and will be linked to the "Sales" entity to record customer purchases. The "Salespeople" entity will contain attributes such as "sales_person_id," "first_name," "last_ame," and is associated with the "Sales" entity to track sales made by each salesperson.
+    - In designing the ERD for the car dealership database, I identify the primary entities involved, such as "Cars," "Customers," "Sales," "Salespeople," "Dealerships". Relationships between entities are depicted by lines connecting them, with cardinality indicators to specify the nature of the relationship (one-to-one, one-to-many, or many-to-many).
+    - For example, the "Cars" entity has attributes such as "car_id," "make," "model," "year," "price," and "color." And has relationships with other entities such as "Sales" (indicating the sale of a specific car) and "Dealerships" (denoting the dealership that sells the car).
+    - The "Customers" includes attributes "customer_ID," "first_name," "last_name," "email," and "primary_phone," and will be linked to the "Sales" entity to record customer purchases. The "Salespeople" entity will contain attributes such as "sales_person_id," "first_name," "last_ame," and is associated with the "Sales" entity to track sales made by each salesperson.
     
     The ERD, ensures all relevant entities and their relationships are accurately represented, providing a clear and comprehensive overview of the database structure.
-    
-[ERD Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/entity_relationship_diagram.jpeg)
+    [ERD Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/entity_relationship_diagram.jpeg)
 
 4. **Database Design (DDL)**
-    - Define the database schema and create the necessary tables using Data Definition Language (DDL).
+    - In the database design phase, I defined the database schema and created the necessary tables using Data Definition Language (DDL). This involved translating the conceptual ERD into a concrete database structure by specifying the attributes and data types for each table, as well as defining primary keys, foreign keys and constraints.
+    - In the DDL statements, I utilized SQL commands such as CREATE TABLE and ALTER TABLE to implement the database schema. I ensured data integrity by defining constraints such as NOT NULL, CHECK, PRIMARY KEY, and FOREIGN KEY constraints to enforce data validation rules and maintain referential integrity.
+    - Throughout the database design process, I followed best practices to optimize performance, minimize redundancy, and ensure scalability and flexibility for future enhancements. By completing the DDL phase, I laid the foundation for the subsequent stages of data population, manipulation, and analysis in the car dealership database project.
+    - [DDL](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql)
 
-5. **Normalization and Optimization**
-    - Check for normalization issues and optimize the database structure for efficiency.
+5. **Design Data Pipeline Diagram**
+    - In the data pipeline design phase, I visualized the end-to-end data flow and pipeline architecture for the Extract, Transform, Load (ETL) and Extract, Load, Transform (ELT) processes. The pipeline encompasses various data sources, cleansing techniques, and database operations to prepare the data for analysis and visualization.
+    - [ETL Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/Data%20Pipeline%20Diagram.jpeg)
 
-6. **Database Implementation**
-    - Execute the database creation process based on the finalized DDL.
-
-7. **Design Data Pipeline Diagram**
-    - Visualize the data flow and pipeline architecture for ETL and ELT processes.
-
-8. **Data Acquisition for ETL/ELT**
+6. **Data Acquisition for ETL/ELT**
     - Gather suitable datasets for Extract, Transform, and Load (ETL) processes and or Extract Load Transform (ELT)
-        - **Extract:**
-            - Utilize flat files, aggregated tables, manual data entry, or existing datasets.
-        - **Transform/Cleansing:**
-            - Apply normalization techniques and conduct data cleansing to ensure data quality.
+        - Dealership Table: Manually inserted data for 8 dealerships using INSERT statements:
+        - INSERT INTO DEALERSHIPS (DEALERSHIP_NAME, ADDRESS, CITY, STATE, POSTAL_CODE, PRIMARY_PHONE)
+            VALUES
+            ('Value Voyage Auto-Courtland', '15423 I-10', 'Houston', 'TX', '78249', '210-441-7785'),
+            ('Value Voyage Auto-North', '6907 Southwest Fwy', 'Houston', 'TX', '77090', '(281) 209-1333'),
+            ('Value Voyage Auto-Northwest', '19500 Northwest Fwy', 'Houston', 'TX', '77065', '(713) 774-3400'),
+            ('Value Voyage Auto-CincoRanch', '19546 US-290 Frontage Rd.', 'Houston', 'TX', '77041', '(281) 970-6690'),
+            ('Value Voyage Auto-Sugarland', '4200 Elkins Rd.', 'Houston', 'TX', '77479', '281-448-7744'),
+            ('Value Voyage Auto-SouthHouston', '6909 Southwest Fwy', 'Houston', 'TX', '77074', NULL),
+            ('Value Voyage Auto-BaylandPark', '13100 Gulf Fwy', 'Houston', 'TX', '77034', '(281) 481-4299'),
+            ('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');
+
 
 9. **Perform SQL Analysis**
     - Answer the analytical questions using SQL programming techniques.
