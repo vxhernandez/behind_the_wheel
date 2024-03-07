@@ -124,6 +124,7 @@ By following this roadmap, I was able to systematically progress through each st
 
 8. **Perform SQL Analysis**
     - Utilized various SQL programming techniques including GROUP BY, HAVING, window functions (PARTITION BY), Common Table Expressions (CTEs), and Pivot tables to effectively address and answer all 25 analytical questions.
+    - [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
     - [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
 
 11. **Create Tableau Visualizations**
