@@ -127,47 +127,6 @@ GO
 /***************************************************************/
 --Stored Procedure
 
---Takes sales_person_id and displays their total sales and vehicle information.
-
-CREATE OR ALTER PROCEDURE dbo.uspTotalsBySalesPerson
-@paramSalesPersonId int
-As
-
-SELECT 
-    b.sales_person_id AS 'Sales Person ID',
-	a.DEALERSHIP_ID as 'Dealership',
-    a.make AS 'Vehicle Make', 
-    a.model AS 'Vehicle Model',
-    COALESCE(a.color, 'Color Not Listed') AS 'Vehicle Color',
-    FORMAT(a.msrp, 'C2') AS 'Vehicle MSRP',
-    FORMAT(b.sale_price, 'C2') AS 'Sale Price',
-    FORMAT(SUM(b.sale_price) OVER (PARTITION BY b.sales_person_id ORDER BY b.sale_date), 'C2') AS 'Sales Total',
-    b.SALE_DATE AS 'Date of Sale'
-FROM   
-    cars a
-JOIN 
-    sales b ON a.car_id = b.car_id
-WHERE 
-    a.CAR_ID IN (SELECT car_ID FROM sales)
-    AND SALES_PERSON_ID = @paramSalesPersonId
-ORDER BY 
-    b.sale_date;
-
-
-EXEC dbo.uspTotalsBySalesPerson 356;
-GO
-
-/***************************************************************/
---Stored Procedure
-
-/*
-
-Updated the previous stored procedure that allows the user to enter either the sales_person_id or the last_name. 
-if both parameters are NULL, the procedure will display an error message. This prevents the user from
-not entering a parameter which would then display information for all the sales people.
-
-*/
-
 CREATE OR ALTER PROCEDURE dbo.uspTotalsBySalesPerson
 --Both @paramSalesPersonId and @paramSalesPersonLN parameters are declared with default values of NULL, allowing them to be optionally provided.
     @paramSalesPersonId INT = NULL,
