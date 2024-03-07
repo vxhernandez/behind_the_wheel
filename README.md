@@ -141,10 +141,10 @@ By following this roadmap, I was able to systematically progress through each st
     - Delve into query execution plans to identify bottlenecks and optimize performance effectively.
     - Understand the impact of indexes on query performance and learn to leverage them efficiently to tune queries.
     - Review and rewrite queries to maximize efficiency, minimize resource consumption, and enhance overall database performance.
-
+   
 **PART II - Advanced SQL Programming**
     - In part II, I implemented advanced SQL programming concepts to enhance data analysis and functionality to the database using views, triggers and stored procedures. 
-    - [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+    [T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
     - Views
     - Total sales by salesperson View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name. Sales by dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. The 3rd view combines data from multiple tables to present comprehensive sales information. It joins the cars, customers, sales, sales_people and dealerships tables to display details such as customer_name, salesperson name, sale_date, sale_price, car make, model, year, msrp, and dealership_name. The CONCAT() function is used to concatenate first and last names, providing clear identification of customers and salespersons.
 
