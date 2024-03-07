@@ -78,10 +78,9 @@ By following this roadmap, I was able to systematically progress through each st
 
           ```
          - Customers Table: Utilized Mockaroo website to generate customer data and performed a direct flat file import into the customers table using SQL Server Import Wizard. Mockaroo is a website that generates realistic-looking data for testing, development purposes and can be used to populate databases.
-         - ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/967c8e34-ba05-41c8-8051-1993e158fae0)
-         - <div style="width:60px ; height:60px">
-![Employee data](/repository/assets/employee.png?raw=true "Employee Data title")
-<div>
+         div style="width:60px ; height:60px">
+      ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/967c8e34-ba05-41c8-8051-1993e158fae0)
+            <div>
 
          - Cars Table: Populated the cars table from Kaggle dataset containing make, model, year, and MSRP columns. Connected to SSIS using Visual Studio, created an SSIS package to remove used cars by implementing a Data Flow Task with a conditional split to retain only "new car" sales data, aligning with the database focus. 
 
