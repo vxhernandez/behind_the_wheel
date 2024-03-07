@@ -78,6 +78,12 @@ By following this roadmap, I was able to systematically progress through each st
             ('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');
 
           ```
+         - Customers Table: Utilized Mockaroo website to generate customer data and performed a direct flat file import into the customers table using SQL Server Import Wizard. Mockaroo is a website that generates realistic-looking data for testing, development purposes and can be used to populate databases.
+         - ![Mockaroo! screenshot]([image link](https://www.notion.so/GitHub-Roadmap-5a6cdd3a325044a8aa5163605adefe4b?pvs=4#4f0d58c2a40f4e0d98c7ecf8adc0d3fe))
+    - 
+
+
+
 9. **Perform SQL Analysis**
     - Answer the analytical questions using SQL programming techniques.
 
