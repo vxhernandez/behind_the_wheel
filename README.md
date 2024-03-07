@@ -78,7 +78,8 @@ By following this roadmap, I was able to systematically progress through each st
 
           ```
          - Customers Table: Utilized Mockaroo website to generate customer data and performed a direct flat file import into the customers table using SQL Server Import Wizard. Mockaroo is a website that generates realistic-looking data for testing, development purposes and can be used to populate databases.
-         - ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/73e2657b-fd69-4bb6-8cd9-73e1b209867a)
+         - ![mockaroo_screenshot2](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/1739929f-e408-4eef-a9a3-ea4a4a9f9c07)
+
 
 
    
