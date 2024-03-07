@@ -43,7 +43,7 @@ By following this roadmap, I was able to systematically progress through each st
     - In selecting 25 analytical questions for the car dealership database project, I aim to delve into various aspects of sales, customer behavior, and employee performance. By addressing these analytical questions through data analysis and interpretation, I aim to gain valuable insights that can inform strategic decision-making, enhance operational efficiency, and drive business growth.
 
 3. **Design Entity Relationship Diagram (ERD)**
-    - - The creation of a Entity Relationship Diagram (ERD) is crucial for visualizing the relationships between entities within the car dealership database. The ERD serves as a blueprint that illustrates the structure of the database, including the various entities, their attributes, and the relationships between them.
+    - The creation of a Entity Relationship Diagram (ERD) is crucial for visualizing the relationships between entities within the car dealership database. The ERD serves as a blueprint that illustrates the structure of the database, including the various entities, their attributes, and the relationships between them.
     
     In designing the ERD for the car dealership database, I identify the primary entities involved, such as "Cars," "Customers," "Sales," "Salespeople," "Dealerships". Relationships between entities are depicted by lines connecting them, with cardinality indicators to specify the nature of the relationship (one-to-one, one-to-many, or many-to-many).
     
@@ -53,7 +53,7 @@ By following this roadmap, I was able to systematically progress through each st
     
     The ERD, ensures all relevant entities and their relationships are accurately represented, providing a clear and comprehensive overview of the database structure.
     
-    <LINK TO ERD>
+[ERD Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/entity_relationship_diagram.jpeg)
 
 4. **Database Design (DDL)**
     - Define the database schema and create the necessary tables using Data Definition Language (DDL).
