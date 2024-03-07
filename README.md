@@ -64,19 +64,22 @@ By following this roadmap, I was able to systematically progress through each st
 6. **Data Acquisition for ETL/ELT**
     - Gather suitable datasets for Extract, Transform, and Load (ETL) processes and or Extract Load Transform (ELT)
         - Dealership Table: Manually inserted data for 8 dealerships using INSERT statements:
-      '''sql
-            INSERT INTO DEALERSHIPS (DEALERSHIP_NAME, ADDRESS, CITY, STATE, POSTAL_CODE, PRIMARY_PHONE)
-            VALUES
-            ('Value Voyage Auto-Courtland', '15423 I-10', 'Houston', 'TX', '78249', '210-441-7785'),
-            ('Value Voyage Auto-North', '6907 Southwest Fwy', 'Houston', 'TX', '77090', '(281) 209-1333'),
-            ('Value Voyage Auto-Northwest', '19500 Northwest Fwy', 'Houston', 'TX', '77065', '(713) 774-3400'),
-            ('Value Voyage Auto-CincoRanch', '19546 US-290 Frontage Rd.', 'Houston', 'TX', '77041', '(281) 970-6690'),
-            ('Value Voyage Auto-Sugarland', '4200 Elkins Rd.', 'Houston', 'TX', '77479', '281-448-7744'),
-            ('Value Voyage Auto-SouthHouston', '6909 Southwest Fwy', 'Houston', 'TX', '77074', NULL),
-            ('Value Voyage Auto-BaylandPark', '13100 Gulf Fwy', 'Houston', 'TX', '77034', '(281) 481-4299'),
-            ('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');
+"""
 
-          '''
+INSERT INTO DEALERSHIPS (DEALERSHIP_NAME, ADDRESS, CITY, STATE, POSTAL_CODE, PRIMARY_PHONE)
+VALUES
+('Value Voyage Auto-Courtland', '15423 I-10', 'Houston', 'TX', '78249', '210-441-7785'),
+('Value Voyage Auto-North', '6907 Southwest Fwy', 'Houston', 'TX', '77090', '(281) 209-1333'),
+('Value Voyage Auto-Northwest', '19500 Northwest Fwy', 'Houston', 'TX', '77065', '(713) 774-3400'),
+('Value Voyage Auto-CincoRanch', '19546 US-290 Frontage Rd.', 'Houston', 'TX', '77041', '(281) 970-6690'),
+('Value Voyage Auto-Sugarland', '4200 Elkins Rd.', 'Houston', 'TX', '77479', '281-448-7744'),
+('Value Voyage Auto-SouthHouston', '6909 Southwest Fwy', 'Houston', 'TX', '77074', NULL),
+('Value Voyage Auto-BaylandPark', '13100 Gulf Fwy', 'Houston', 'TX', '77034', '(281) 481-4299'),
+('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');
+
+
+
+"""
 
 
 9. **Perform SQL Analysis**
