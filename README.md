@@ -64,7 +64,7 @@ By following this roadmap, I was able to systematically progress through each st
 6. **Data Acquisition for ETL/ELT**
     - Gather suitable datasets for Extract, Transform, and Load (ETL) processes and or Extract Load Transform (ELT)
         - Dealership Table: Manually inserted data for 8 dealerships using INSERT statements:
-"""
+```sql
 
 INSERT INTO DEALERSHIPS (DEALERSHIP_NAME, ADDRESS, CITY, STATE, POSTAL_CODE, PRIMARY_PHONE)
 VALUES
@@ -77,11 +77,7 @@ VALUES
 ('Value Voyage Auto-BaylandPark', '13100 Gulf Fwy', 'Houston', 'TX', '77034', '(281) 481-4299'),
 ('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');
 
-
-
-"""
-
-
+```
 9. **Perform SQL Analysis**
     - Answer the analytical questions using SQL programming techniques.
 
