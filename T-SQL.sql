@@ -1,5 +1,6 @@
 /*************************************************************************/
 --Views
+
 --Total sales by salesperson View.
 
 CREATE VIEW TotalSalesBySalesperson AS
@@ -48,9 +49,8 @@ join cars c on b.CAR_ID = c.CAR_ID
 join SALES_PEOPLE d on b.SALES_PERSON_ID = d.SALES_PERSON_ID 
 join DEALERSHIPS e on c.DEALERSHIP_ID = e.DEALERSHIP_ID;
 
-
 /***************************************************************/
---Trigger
+--Triggers
 
 --This trigger logs inserts into the Customers table and adds a row into a the customer_audit table.
 --create an audit table
@@ -98,7 +98,6 @@ SELECT *
 FROM sys.triggers;
 
 /***************************************************************/
-
 --Stored Procedure
 
 --Allows the user to enter a sale_id, and see the sale_price, sale_date and car_id from the Sales table by entering sale_id parameter.
