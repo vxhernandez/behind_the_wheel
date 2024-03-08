@@ -142,7 +142,7 @@ The sales_by_dealership View, provides a summary of sales by dealership. It join
 
 The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
 
-[Views](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+[Views](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
 
 **Triggers**
 
