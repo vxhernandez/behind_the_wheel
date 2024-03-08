@@ -136,11 +136,11 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 
 **Views**
 
-Total sales by salesperson View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name. 
+The salesperson_totals View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name. 
 
-Sales by dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
+The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
 
-The 3rd view combines data from multiple tables to present comprehensive sales information. It joins the cars, customers, sales, sales_people and dealerships tables to display details such as customer_name, salesperson name, sale_date, sale_price, car make, model, year, msrp, and dealership_name. The CONCAT() function is used to concatenate first and last names, providing clear identification of customers and salespersons.
+The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
 
 [Views](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
 
