@@ -154,7 +154,7 @@ Then, it creates the trigger CustomerChangeLog, specifying that it should execut
 
 After setting up the trigger, the script retrieves existing data from the CUSTOMERS table to demonstrate its contents and then queries the customer_audit table to display the audit log entries. Finally, it retrieves all triggers in the database using the sys.triggers system view.
 
-[Triggers](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+[Triggers](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
 
 **Stored Procedures**  
 
@@ -162,7 +162,7 @@ The first stored procedure, uspShowSalePriceBySaleID, retrieves specific informa
 
 The uspTotalsBySalesPerson stored procedure, retrieves sales information for a particular salesperson identified by their sales_person_id. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided sales_person_id parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the sales_person_id or the last_name of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
 
-[Store Procedures](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+[Store Procedures](https://github.com/vxhernandez/behind_the_wheel/blob/main/stored_procedures.sql)
 
    
 
