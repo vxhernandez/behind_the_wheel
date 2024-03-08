@@ -70,15 +70,13 @@ By following this roadmap, I was able to systematically progress through each st
             ('Value Voyage Auto-Katy', '21636 Katy Fwy', 'Houston', 'TX', '77449', '(281) 994-6200');
 
           ```
-         - Customers Table: Utilized Mockaroo website to generate customer data and performed a direct flat file import into the customers table using SQL Server Import Wizard. Mockaroo is a website that generates realistic-looking data for testing, development purposes and can be used to populate databases.
-         - ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/b734f826-8b88-49d8-b23f-ef58a6718387)
-
-         - Cars Table: Populated the cars table from Kaggle dataset containing make, model, year, and MSRP columns. Connected to SSIS using Visual Studio, created an SSIS package to remove used cars by implementing a Data Flow Task with a conditional split to retain only "new car" sales data, aligning with the database focus.
-         - ![ssis_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/d8b91f67-d302-48aa-b632-f35272f8bd36)
-           
-         - Manual Data Creation: To populate the dealership_id, sale_price, and sale_date where data was unavailable, SQL scripts were used to generate synthetic data. This SQL code creates a loop that iterates over the number of records in the cars table. Within each iteration, it generates a random integer between 1 and 8 and assigns it to the variable @i. Then, it updates the dealership_id column in the staging.cars table, setting it to the value of @i, but only for rows where car_id equals the current value of @Counter and dealership_id is equal to 9. Finally, it increments the counter @Counter by 1 to move to the next iteration. Essentially, it's assigning random dealership IDs to a subset of cars in the staging table, specifically for each dealership_id, in this case 9.
+    - Customers Table: Utilized Mockaroo website to generate customer data and performed a direct flat file import into the customers table using SQL Server Import Wizard. Mockaroo is a website that generates realistic-looking data for testing, development purposes and can be used to populate databases.
+    - ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/b734f826-8b88-49d8-b23f-ef58a6718387)
+    - Cars Table: Populated the cars table from Kaggle dataset containing make, model, year, and MSRP columns. Connected to SSIS using Visual Studio, created an SSIS package to remove used cars by implementing a Data Flow Task with a conditional split to retain only "new car" sales data, aligning with the database focus.
+    - ![ssis_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/d8b91f67-d302-48aa-b632-f35272f8bd36)
+    - Manual Data Creation: To populate the dealership_id, sale_price, and sale_date where data was unavailable, SQL scripts were used to generate synthetic data. This SQL code creates a loop that iterates over the number of records in the cars table. Within each iteration, it generates a random integer between 1 and 8 and assigns it to the variable @i. Then, it updates the dealership_id column in the staging.cars table, setting it to the value of @i, but only for rows where car_id equals the current value of @Counter and dealership_id is equal to 9. Finally, it increments the counter @Counter by 1 to move to the next iteration. Essentially, it's assigning random dealership IDs to a subset of cars in the staging table, specifically for each dealership_id, in this case 9.
          
-            ```sql
+    ```sql
            DECLARE @Counter INT 
             DECLARE @i INT
             SET @Counter=1
@@ -92,10 +90,10 @@ By following this roadmap, I was able to systematically progress through each st
                 SET @Counter  = @Counter  + 1
                 END
             
-            ```
-        - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -10. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
+    ```
+    - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -10. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
 
-        ```sql
+    ```sql
 
         UPDATE staging.SALES
         SET sale_price = (
@@ -103,10 +101,10 @@ By following this roadmap, I was able to systematically progress through each st
             FROM staging.cars
             WHERE cars.car_ID = staging.SALES.car_id);
         
-        ```
-        - The SQL code below updates the sale_date column in the staging.sales table. It sets the sale_date to a randomly generated date within the past year. The random date is calculated by adding a random number of days (up to 365 days) to a base date. The base date is calculated as the value of the year column in the dbo.cars table, subtracting 1900 years, and adding it to January 1st, 1900. Each row in the staging.sales table is updated based on the car_id, matching it with the car_ID in the dbo.cars table to determine the corresponding year value for the calculation.
+    ```
+    - The SQL code below updates the sale_date column in the staging.sales table. It sets the sale_date to a randomly generated date within the past year. The random date is calculated by adding a random number of days (up to 365 days) to a base date. The base date is calculated as the value of the year column in the dbo.cars table, subtracting 1900 years, and adding it to January 1st, 1900. Each row in the staging.sales table is updated based on the car_id, matching it with the car_ID in the dbo.cars table to determine the corresponding year value for the calculation.
 
-        ```sql
+    ```sql
         
         UPDATE staging.sales
         SET sale_date = (
@@ -114,9 +112,9 @@ By following this roadmap, I was able to systematically progress through each st
             FROM dbo.cars
             WHERE cars.car_ID = sales.car_id);
         
-        ```
-        - Staging Database: All aforementioned processes were performed within a staging database.
-        - Migration to Target Database: Once data was cleansed and transformed in the staging database, it was migrated to the target database for analysis using SQL queries.
+     ```
+    - Staging Database: All aforementioned processes were performed within a staging database.
+    - Migration to Target Database: Once data was cleansed and transformed in the staging database, it was migrated to the target database for analysis using SQL queries.
 
 7. **Normalization and Optimization and ELT**
     - During the normalization and optimization phase, in the database structure to identify any normalization issues and implemented optimizations to enhance efficiency and performance.
@@ -145,9 +143,9 @@ By following this roadmap, I was able to systematically progress through each st
 ### PART II - Advanced SQL Programming:
 
 In part II, I implemented advanced SQL programming concepts to enhance data analysis and functionality to the database using views, triggers and stored procedures. 
-[T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
 
-**View**
+**Views**
+
 Total sales by salesperson View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name. 
 
 Sales by dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
@@ -155,6 +153,7 @@ Sales by dealership View, provides a summary of sales by dealership. It joins th
 The 3rd view combines data from multiple tables to present comprehensive sales information. It joins the cars, customers, sales, sales_people and dealerships tables to display details such as customer_name, salesperson name, sale_date, sale_price, car make, model, year, msrp, and dealership_name. The CONCAT() function is used to concatenate first and last names, providing clear identification of customers and salespersons.
 
 **Triggers**
+
 The CustomerChangeLog trigger on the customers table logs inserts into the customers table by capturing the inserted data and adding a row to the customer_audit table, which serves as an audit log. 
 
 First, it creates the customer_audit table with columns to store the audit information such as AuditID, CustomerID, CustomerFN, CustomerLN, and TimeAdded. 
@@ -164,5 +163,12 @@ Then, it creates the trigger CustomerChangeLog, specifying that it should execut
 After setting up the trigger, the script retrieves existing data from the CUSTOMERS table to demonstrate its contents and then queries the customer_audit table to display the audit log entries. Finally, it retrieves all triggers in the database using the sys.triggers system view.
 
 **Stored Procedures**  
+
+The first stored procedure, uspShowSalePriceBySaleID, retrieves specific information about a sale based on the provided sale_id parameter. It selects the sale ID, sale date, sale price (formatted as currency), and car ID from the SALES table where the sale_id matches the input parameter. This procedure allows users to quickly access details of a specific sale by providing the sale ID. delete the 1st stored procedure as the 2nd one is an improvement on the first one.
+
+The uspTotalsBySalesPerson stored procedure, retrieves sales information for a particular salesperson identified by their sales_person_id. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided sales_person_id parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the sales_person_id or the last_name of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
+
+[T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+
    
 
