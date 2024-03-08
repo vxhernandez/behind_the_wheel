@@ -19,15 +19,6 @@ This repository serves as a showcase of my experience in database management, an
     - Excel for data cleansing
     - Tableau for developing dashboard
 
-### Links:
-
-- [ERD Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/entity_relationship_diagram.jpeg)
-- [ETL Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/Data%20Pipeline%20Diagram.jpeg)
-- Data used: [Kaggle Dataset](https://www.kaggle.com/datasets/ahmettalhabektas/new-york-cars-big-data-2023)  [Mockaroo](https://www.mockaroo.com/)
-- [DDL](https://github.com/vxhernandez/behind_the_wheel/blob/main/DDL.sql)
-- [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
-- [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
-
 ### Roadmap for the project:
 
 By following this roadmap, I was able to systematically progress through each stage of the project, ensuring thorough analysis and effective presentation of insights derived from the car dealership database.
@@ -140,7 +131,7 @@ By following this roadmap, I was able to systematically progress through each st
     - Understand the impact of indexes on query performance and learn to leverage them efficiently to tune queries.
     - Review and rewrite queries to maximize efficiency, minimize resource consumption, and enhance overall database performance.
 
-### PART II - Advanced SQL Programming:
+### PART II - Advanced SQL Programming
 
 In part II, I implemented advanced SQL programming concepts to enhance data analysis and functionality to the database using views, triggers and stored procedures. 
 
@@ -152,6 +143,8 @@ Sales by dealership View, provides a summary of sales by dealership. It joins th
 
 The 3rd view combines data from multiple tables to present comprehensive sales information. It joins the cars, customers, sales, sales_people and dealerships tables to display details such as customer_name, salesperson name, sale_date, sale_price, car make, model, year, msrp, and dealership_name. The CONCAT() function is used to concatenate first and last names, providing clear identification of customers and salespersons.
 
+[Views](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+
 **Triggers**
 
 The CustomerChangeLog trigger on the customers table logs inserts into the customers table by capturing the inserted data and adding a row to the customer_audit table, which serves as an audit log. 
@@ -162,13 +155,15 @@ Then, it creates the trigger CustomerChangeLog, specifying that it should execut
 
 After setting up the trigger, the script retrieves existing data from the CUSTOMERS table to demonstrate its contents and then queries the customer_audit table to display the audit log entries. Finally, it retrieves all triggers in the database using the sys.triggers system view.
 
+[Triggers](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+
 **Stored Procedures**  
 
 The first stored procedure, uspShowSalePriceBySaleID, retrieves specific information about a sale based on the provided sale_id parameter. It selects the sale ID, sale date, sale price (formatted as currency), and car ID from the SALES table where the sale_id matches the input parameter. This procedure allows users to quickly access details of a specific sale by providing the sale ID. delete the 1st stored procedure as the 2nd one is an improvement on the first one.
 
 The uspTotalsBySalesPerson stored procedure, retrieves sales information for a particular salesperson identified by their sales_person_id. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided sales_person_id parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the sales_person_id or the last_name of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
 
-[T-SQL](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
+[Store Procedures](https://github.com/vxhernandez/behind_the_wheel/blob/main/T-SQL.sql)
 
    
 
