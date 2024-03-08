@@ -1,4 +1,4 @@
-/*************************************************************************/
+
 --Views
 
 --Total sales by salesperson View.
@@ -30,25 +30,29 @@ INNER JOIN SALES AS b ON a.CAR_ID = b.CAR_ID
 INNER JOIN DEALERSHIPS AS c ON a.DEALERSHIP_ID = c.DEALERSHIP_ID
 GROUP BY a.DEALERSHIP_ID, c.DEALERSHIP_NAME;
 
---View created from a join to view data from all tables.
+--Inventory View
 
-create view [all_sales_info] AS
-select 
-concat(a.first_name, ' ', a.last_name) as customer,
-concat(d.first_name, ' ', d.last_name) AS sales_person,
-b.SALE_DATE, 
-b.SALE_PRICE, 
-c.MAKE, 
-c.MODEL, 
-c.YEAR, 
-c.MSRP,
-e.DEALERSHIP_NAME
-from CUSTOMERS a
-join sales b on a.CUSTOMER_ID = b.CUSTOMER_ID
-join cars c on b.CAR_ID = c.CAR_ID
-join SALES_PEOPLE d on b.SALES_PERSON_ID = d.SALES_PERSON_ID 
-join DEALERSHIPS e on c.DEALERSHIP_ID = e.DEALERSHIP_ID;
-
+CREATE VIEW car_inventory AS
+SELECT 
+	car_id,
+	make, 
+       model,
+	   color,
+       msrp,
+	   'In Inventory' as 'Car Status'
+FROM cars
+where CAR_ID not in (select car_ID from sales)
+union all
+SELECT 
+		CAR_ID,
+		make, 
+       model,
+	   color,
+       msrp,
+	   'Sold' as 'Car Status'
+FROM cars
+where CAR_ID in (select car_ID from sales);
+	
 /***************************************************************/
 --Triggers
 
