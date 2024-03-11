@@ -136,19 +136,17 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 
 **Views**
 
-The salesperson_totals View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name. 
+1. The salesperson_totals View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name. 
  
- ---
-The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
+2. The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
 
----
-The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
+3. The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
 
-[Views](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
+[VIEWS](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
 
 **Triggers**
 
-The CustomerChangeLog trigger on the customers table logs inserts into the customers table by capturing the inserted data and adding a row to the customer_audit table, which serves as an audit log. 
+1. The CustomerChangeLog trigger on the customers table logs inserts into the customers table by capturing the inserted data and adding a row to the customer_audit table, which serves as an audit log. 
 
 First, it creates the customer_audit table with columns to store the audit information such as AuditID, CustomerID, CustomerFN, CustomerLN, and TimeAdded. 
 
@@ -156,8 +154,7 @@ Then, it creates the trigger CustomerChangeLog, specifying that it should execut
 
 After setting up the trigger, the script retrieves existing data from the CUSTOMERS table to demonstrate its contents and then queries the customer_audit table to display the audit log entries. Finally, it retrieves all triggers in the database using the sys.triggers system view.
 
- ---
-The SalesChangeLogTrigger on the sales table is set to fire for INSERT, UPDATE, or DELETE operation. 
+2. The SalesChangeLogTrigger on the sales table is set to fire for INSERT, UPDATE, or DELETE operation. 
 
 The trigger checks if there are any rows affected by the operation in the "inserted" pseudo table. If so, it further checks if there are rows affected by the operation in the "deleted" pseudo table. Based on these checks, it inserts records into the SalesChangeLog table to log the changes made to the sales data.
 
@@ -167,16 +164,13 @@ The trigger checks if there are any rows affected by the operation in the "inser
 
 The logged information includes SaleID, CustomerID, CarId, SalesPersonID, SalePrice, SaleDate, the action performed, and a timestamp indicating when the change occurred.
 
-[Triggers](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
+[TRIGGERS](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
 
 **Stored Procedures**  
 
-The first stored procedure, uspShowSalePriceBySaleID, retrieves specific information about a sale based on the provided sale_id parameter. It selects the sale ID, sale date, sale price (formatted as currency), and car ID from the SALES table where the sale_id matches the input parameter. This procedure allows users to quickly access details of a specific sale by providing the sale ID. delete the 1st stored procedure as the 2nd one is an improvement on the first one.
+1. The first stored procedure, uspShowSalePriceBySaleID, retrieves specific information about a sale based on the provided sale_id parameter. It selects the sale ID, sale date, sale price (formatted as currency), and car ID from the SALES table where the sale_id matches the input parameter. This procedure allows users to quickly access details of a specific sale by providing the sale ID. delete the 1st stored procedure as the 2nd one is an improvement on the first one.
 
----
-The uspTotalsBySalesPerson stored procedure, retrieves sales information for a particular salesperson identified by their sales_person_id. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided sales_person_id parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the sales_person_id or the last_name of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
+2. The uspTotalsBySalesPerson stored procedure, retrieves sales information for a particular salesperson identified by their sales_person_id. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided sales_person_id parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the sales_person_id or the last_name of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
 
-[Store Procedures](https://github.com/vxhernandez/behind_the_wheel/blob/main/stored_procedures.sql)
-
-   
+[STORED PROCEDURES](https://github.com/vxhernandez/behind_the_wheel/blob/main/stored_procedures.sql) 
 
