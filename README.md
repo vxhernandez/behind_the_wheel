@@ -42,7 +42,7 @@ By following this roadmap, I was able to systematically progress through each st
 
 5. **Design Data Pipeline Diagram**
     - In the data pipeline design phase, I visualized the end-to-end data flow and pipeline architecture for the Extract, Transform, Load (ETL) and Extract, Load, Transform (ELT) processes. The pipeline encompasses various data sources, cleansing techniques, and database operations to prepare the data for analysis and visualization.
-    - [ETL Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/Data%20Pipeline%20Diagram.jpeg)
+    - [ETL Diagram](https://github.com/vxhernandez/behind_the_wheel/blob/main/data_pipeline_diagram.jpeg)
 
 6. **Data Acquisition and ETL/ELT**
     - Dealership Table: Manually inserted data for 8 dealerships using INSERT statements:
