@@ -116,7 +116,8 @@ By following this roadmap, I was able to systematically progress through each st
 
 11. **Create Tableau Visualizations**
     - The Value Voyage Auto database Dashboard offers a visualization and analysis of car dealership data. This dashboard provides a comprehensive overview of sales performance, customer insights, and dealership metrics. Value Voyage Auto employees can delve into various aspects of the dataset, such as total sales by dealership, top-selling vehicle models, and customer demographics. It tracks sales trends over time and compares performance across different dealership locations.
-    - [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
+    - [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/ValueVoyageAutoDashboard?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
+      
     - ![tableau_viz](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/5e971ff7-5f0d-42ff-8413-29abc679715a)
 
 13. **Lessons Learned**
