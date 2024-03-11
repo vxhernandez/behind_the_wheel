@@ -153,6 +153,16 @@ First, it creates the customer_audit table with columns to store the audit infor
 Then, it creates the trigger CustomerChangeLog, specifying that it should execute AFTER INSERT on the customers table. Inside the trigger, it inserts the relevant information (CustomerID, CustomerFN, CustomerLN, and current timestamp) into the customer_audit table using the INSERTED pseudo-table to access the newly inserted rows. 
 
 After setting up the trigger, the script retrieves existing data from the CUSTOMERS table to demonstrate its contents and then queries the customer_audit table to display the audit log entries. Finally, it retrieves all triggers in the database using the sys.triggers system view.
+ ---
+The SalesChangeLogTrigger on the sales table is set to fire for INSERT, UPDATE, or DELETE operation. 
+
+The trigger checks if there are any rows affected by the operation in the "inserted" pseudo table. If so, it further checks if there are rows affected by the operation in the "deleted" pseudo table. Based on these checks, it inserts records into the SalesChangeLog table to log the changes made to the sales data.
+
+- For an UPDATE operation, it logs the changes made to the affected rows by selecting data from the "inserted" table and marks the action as 'UPDATE'.
+- For an INSERT operation, it logs the newly inserted rows by selecting data from the "inserted" table and marks the action as 'INSERT'.
+- For a DELETE operation, it logs the deleted rows by selecting data from the "deleted" table and marks the action as 'DELETE'.
+
+The logged information includes SaleID, CustomerID, CarId, SalesPersonID, SalePrice, SaleDate, the action performed, and a timestamp indicating when the change occurred.
 
 [Triggers](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
 
