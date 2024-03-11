@@ -132,7 +132,7 @@ By following this roadmap, I was able to systematically progress through each st
 
 ### PART II - Advanced SQL Programming
 
-In part II, I implemented advanced SQL programming concepts to enhance data analysis and functionality to the database using views, triggers and stored procedures. 
+In part II, I implemented advanced SQL programming concepts to enhance data analysis and functionality to the database. Views were implemented to offer simplified data access, triggers were utilized to enforce data integrity and maintain a detailed audit trail of changes, and stored procedures were employed to encapsulate frequently executed queries, promoting modularity and improving performance.
 
 **Views**
 
