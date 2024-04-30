@@ -122,7 +122,7 @@ By following this roadmap, I was able to systematically progress through each st
 
 13. **Lessons Learned**
     - Recognizing the time constraints associated with creating data, I've learned the importance of leveraging online datasets. This approach not only saves time but also provides diverse and real-world data for analysis.
-    - To deepen analysis and extract richer insights, I've acknowledged the need to augment existing data with additional attributes. This will enhance the granularity of analysis and enable more comprehensive understanding of each entity.
+    - To deepen analysis and extract richer insights, I need to augment existing data with additional attributes. This will enhance the granularity of analysis and enable more comprehensive understanding of each entity.
 
 14. **Next Steps**
     - Gather feedback from colleagues and experts in the field to pinpoint avenues for improvement.
@@ -137,13 +137,15 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 
 **Views**
 
-1. The salesperson_totals View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name. 
+1. The salesperson_totals View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name.
+
+- ![salesperson_totals View](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/b734f826-8b88-49d8-b23f-ef58a6718387)
  
-2. The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
+3. The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
 
-3. The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
+4. The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
 
-[VIEWS](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
+[VIEWS - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
 
 **Triggers**
 
@@ -161,13 +163,13 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
    
    The logged information includes SaleID, CustomerID, CarId, SalesPersonID, SalePrice, SaleDate, the action performed, and a timestamp indicating when the change occurred.
 
-[TRIGGERS](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
+[TRIGGERS - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
 
 **Stored Procedures**  
 
-1. The first stored procedure, uspShowSalePriceBySaleID, retrieves specific information about a sale based on the provided sale_id parameter. It selects the sale ID, sale date, sale price (formatted as currency), and car ID from the SALES table where the sale_id matches the input parameter. This procedure allows users to quickly access details of a specific sale by providing the sale ID. delete the 1st stored procedure as the 2nd one is an improvement on the first one.
+1. The first stored procedure, uspShowSalePriceBySaleID, retrieves specific information about a sale based on the provided sale_id parameter. It selects the sale ID, sale date, sale price (formatted as currency), and car ID from the SALES table where the sale_id matches the input parameter. This procedure allows users to quickly access details of a specific sale by providing the sale ID.
 
 2. The uspTotalsBySalesPerson stored procedure, retrieves sales information for a particular salesperson identified by their sales_person_id. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided sales_person_id parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the sales_person_id or the last_name of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
 
-[STORED PROCEDURES](https://github.com/vxhernandez/behind_the_wheel/blob/main/stored_procedures.sql) 
+[STORED PROCEDURES - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/stored_procedures.sql) 
 
