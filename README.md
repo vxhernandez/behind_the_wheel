@@ -81,6 +81,9 @@ By following this roadmap, I was able to systematically progress through each st
                 END
             
     ```
+
+        - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/033eea44-926a-4882-916c-0ebb17daf13d" width="400" height="300">
+
     - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -10. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
 
     ```sql
@@ -106,25 +109,25 @@ By following this roadmap, I was able to systematically progress through each st
     - Staging Database: All aforementioned processes were performed within a staging database.
     - Migration to Target Database: Once data was cleansed and transformed in the staging database, it was migrated to the target database for analysis using SQL queries.
 
-7. **Normalization and Optimization and ELT**
+6. **Normalization and Optimization and ELT**
     - During the normalization and optimization phase, in the database structure to identify any normalization issues and implemented optimizations to enhance efficiency and performance.
     - I reviewed the database schema to ensure compliance with normalization principles, aiming to eliminate redundancy and improve data integrity. I reviewed the tables for any instances of data duplication or dependency anomalies, such as insertion, update, and deletion anomalies.
 
-8. **Perform SQL Analysis**
+7. **Perform SQL Analysis**
     - Utilized various SQL programming techniques including GROUP BY, HAVING, window functions (PARTITION BY), Common Table Expressions (CTEs), and Pivot tables to effectively address and answer all 25 analytical questions.
     - [DML](https://github.com/vxhernandez/behind_the_wheel/blob/main/DML.sql)
 
-9. **Create Tableau Visualizations**
+8. **Create Tableau Visualizations**
     - The Value Voyage Auto database Dashboard offers a visualization and analysis of car dealership data. This dashboard provides a comprehensive overview of sales performance, customer insights, and dealership metrics. Value Voyage Auto employees can delve into various aspects of the dataset, such as total sales by dealership, top-selling vehicle models, and customer demographics. It tracks sales trends over time and compares performance across different dealership locations.
     - [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/ValueVoyageAutoDashboard?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
       
         - ![tableau_viz](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/5e971ff7-5f0d-42ff-8413-29abc679715a)
 
-10. **Lessons Learned**
+9. **Lessons Learned**
     - Recognizing the time constraints associated with creating data, I've learned the importance of leveraging online datasets. This approach not only saves time but also provides diverse and real-world data for analysis.
     - To deepen analysis and extract richer insights, I need to augment existing data with additional attributes. This will enhance the granularity of analysis and enable more comprehensive understanding of each entity.
 
-11. **Next Steps**
+10. **Next Steps**
     - Gather feedback from colleagues and experts in the field to pinpoint avenues for improvement.
     - Develop Advanced SQL Programming to add value to the database and deepen understanding of stored procedures, triggers, views, and function development.
     - Delve into query execution plans to identify bottlenecks and optimize performance effectively.
