@@ -64,6 +64,7 @@ By following this roadmap, I was able to systematically progress through each st
     - ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/b734f826-8b88-49d8-b23f-ef58a6718387)
     - Cars Table: Populated the cars table from Kaggle dataset containing make, model, year, and MSRP columns. Connected to SSIS using Visual Studio, created an SSIS package to remove used cars by implementing a Data Flow Task with a conditional split to retain only "new car" sales data, aligning with the database focus.
     - ![ssis_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/d8b91f67-d302-48aa-b632-f35272f8bd36)
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/d8b91f67-d302-48aa-b632-f35272f8bd36" width="400" height="300">
     - Manual Data Creation: To populate the dealership_id, sale_price, and sale_date where data was unavailable, SQL scripts were used to generate synthetic data. This SQL code creates a loop that iterates over the number of records in the cars table. Within each iteration, it generates a random integer between 1 and 8 and assigns it to the variable @i. Then, it updates the dealership_id column in the staging.cars table, setting it to the value of @i, but only for rows where car_id equals the current value of @Counter and dealership_id is equal to 9. Finally, it increments the counter @Counter by 1 to move to the next iteration. Essentially, it's assigning random dealership IDs to a subset of cars in the staging table, specifically for each dealership_id, in this case 9.
          
     ```sql
@@ -139,7 +140,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 [VIEWS - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
 1. The salesperson_totals View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name.
 
-<img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/6115d7c2-81a1-4c80-b7a3-2a85cd65381d" width="400" height="300">
+    <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/6115d7c2-81a1-4c80-b7a3-2a85cd65381d" width="400" height="300">
 
 3. The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
 
