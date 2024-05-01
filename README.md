@@ -147,8 +147,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 
 5. The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
 
-    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/e99f8623-b610-4056-bcff-4cece91da0e1" width="400" height="200">
-
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/e99f8623-b610-4056-bcff-4cece91da0e1" width="400" height="300">
 
 [Views - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
 
