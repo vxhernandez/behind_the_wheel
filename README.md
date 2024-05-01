@@ -81,7 +81,7 @@ By following this roadmap, I was able to systematically progress through each st
                 END
             
     ```
-   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/033eea44-926a-4882-916c-0ebb17daf13d" width="650" height="350">
+   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/033eea44-926a-4882-916c-0ebb17daf13d" width="750" height="350">
 
     - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -10. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
 
