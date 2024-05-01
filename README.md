@@ -81,7 +81,7 @@ By following this roadmap, I was able to systematically progress through each st
                 END
             
     ```
-   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/033eea44-926a-4882-916c-0ebb17daf13d" width="600" height="300">
+   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/033eea44-926a-4882-916c-0ebb17daf13d" width="600" height="350">
 
     - This code updates the sale_price column in the staging.SALES table. It sets the sale_price to a randomly adjusted value based on the msrp of corresponding cars from the staging.cars table. The adjustment is calculated using a formula that involves generating a random number between -10% and +10% of the msrp using ABS(CHECKSUM(NEWID())) % 10 + -10. Each row in the staging.SALES table is updated based on the car_id, matching it with the car_ID in the staging.cars table to determine the msrp value for the calculation.
 
@@ -94,7 +94,7 @@ By following this roadmap, I was able to systematically progress through each st
             WHERE cars.car_ID = staging.SALES.car_id);
         
     ```
-   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/5b19266f-01a1-443a-a30a-f204ccdf1234" width="600" height="300">
+   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/5b19266f-01a1-443a-a30a-f204ccdf1234" width="600" height="350">
 
     - The SQL code below updates the sale_date column in the staging.sales table. It sets the sale_date to a randomly generated date within the past year. The random date is calculated by adding a random number of days (up to 365 days) to a base date. The base date is calculated as the value of the year column in the dbo.cars table, subtracting 1900 years, and adding it to January 1st, 1900. Each row in the staging.sales table is updated based on the car_id, matching it with the car_ID in the dbo.cars table to determine the corresponding year value for the calculation.
 
@@ -107,7 +107,7 @@ By following this roadmap, I was able to systematically progress through each st
             WHERE cars.car_ID = sales.car_id);
         
      ```
-   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/3f9affa6-cde9-40c8-84c8-9b38bbb3e9bd" width="600" height="350">
+   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/3f9affa6-cde9-40c8-84c8-9b38bbb3e9bd" width="600" height="400">
     
     - Staging Database: All aforementioned processes were performed within a staging database.
     - Migration to Target Database: Once data was cleansed and transformed in the staging database, it was migrated to the target database for analysis using SQL queries.
