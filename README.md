@@ -118,7 +118,7 @@ By following this roadmap, I was able to systematically progress through each st
     - The Value Voyage Auto database Dashboard offers a visualization and analysis of car dealership data. This dashboard provides a comprehensive overview of sales performance, customer insights, and dealership metrics. Value Voyage Auto employees can delve into various aspects of the dataset, such as total sales by dealership, top-selling vehicle models, and customer demographics. It tracks sales trends over time and compares performance across different dealership locations.
     - [Value Voyage Dealership Dashboard](https://public.tableau.com/views/BehindtheWheel/ValueVoyageAutoDashboard?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
       
-    - ![tableau_viz](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/5e971ff7-5f0d-42ff-8413-29abc679715a)
+        - ![tableau_viz](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/5e971ff7-5f0d-42ff-8413-29abc679715a)
 
 13. **Lessons Learned**
     - Recognizing the time constraints associated with creating data, I've learned the importance of leveraging online datasets. This approach not only saves time but also provides diverse and real-world data for analysis.
@@ -139,7 +139,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 [VIEWS - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
 1. The salesperson_totals View, calculates the total sales made by each salesperson. It joins the sales table with the sales_people table on the sales_person_id column to retrieve the salespersons first name and last name. Then, it aggregates the sales prices using the SUM() function, grouped by the salespersons ID, last name, and first name.
 
-    <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/6115d7c2-81a1-4c80-b7a3-2a85cd65381d" width="400" height="300">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/6115d7c2-81a1-4c80-b7a3-2a85cd65381d" width="400" height="300">
 
 3. The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function. 
 
