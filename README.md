@@ -158,7 +158,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
    Then, it creates the trigger CustomerChangeLog, specifying that it should execute AFTER INSERT on the customers table. Inside the trigger, it inserts the relevant information (CustomerID, CustomerFN, CustomerLN, and current timestamp) into the customer_audit table using the INSERTED pseudo-table to access the newly inserted rows.
    After setting up the trigger, the script retrieves existing data from the CUSTOMERS table to demonstrate its contents and then queries the customer_audit table to display the audit log entries. Finally, it retrieves all triggers in the database using the sys.triggers system view.
 
-    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/eda7a5d8-7a0d-4c30-a527-79bde010ba00" width="450" height="150">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/eda7a5d8-7a0d-4c30-a527-79bde010ba00" width="500" height="150">
 
 2. The SalesChangeLogTrigger on the sales table is set to fire for INSERT, UPDATE, or DELETE operation.
    The trigger checks if there are any rows affected by the operation in the "inserted" pseudo table. If so, it further checks if there are rows affected by the operation in the "deleted" pseudo table. Based on these checks, it inserts records into the SalesChangeLog table to log the changes made to the sales data.
@@ -169,7 +169,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
    
    The logged information includes SaleID, CustomerID, CarId, SalesPersonID, SalePrice, SaleDate, the action performed, and a timestamp indicating when the change occurred.
 
-    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/1534c45e-93f8-4586-9c6d-3b83cac7bf56" width="400" height="300">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/1534c45e-93f8-4586-9c6d-3b83cac7bf56" width="500" height="300">
 
 [TRIGGERS - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
 
