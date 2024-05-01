@@ -169,7 +169,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
    
    The logged information includes SaleID, CustomerID, CarId, SalesPersonID, SalePrice, SaleDate, the action performed, and a timestamp indicating when the change occurred.
 
-    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/1534c45e-93f8-4586-9c6d-3b83cac7bf56" width="400" height="75">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/1534c45e-93f8-4586-9c6d-3b83cac7bf56" width="400" height="150">
 
 [TRIGGERS - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Triggers.sql)
 
