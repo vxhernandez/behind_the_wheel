@@ -61,10 +61,9 @@ By following this roadmap, I was able to systematically progress through each st
 
           ```
     - Customers Table: Utilized Mockaroo website to generate customer data and performed a direct flat file import into the customers table using SQL Server Import Wizard. Mockaroo is a website that generates realistic-looking data for testing, development purposes and can be used to populate databases.
-    - ![mockaroo_screenshot](https://github.com/vxhernandez/behind_the_wheel/assets/109702488/b734f826-8b88-49d8-b23f-ef58a6718387)
-    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/b734f826-8b88-49d8-b23f-ef58a6718387" width="400" height="350">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/b734f826-8b88-49d8-b23f-ef58a6718387" width="600" height="350">
     - Cars Table: Populated the cars table from Kaggle dataset containing make, model, year, and MSRP columns. Connected to SSIS using Visual Studio, created an SSIS package to remove used cars by implementing a Data Flow Task with a conditional split to retain only "new car" sales data, aligning with the database focus.
-    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/d8b91f67-d302-48aa-b632-f35272f8bd36" width="400" height="300">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/d8b91f67-d302-48aa-b632-f35272f8bd36" width="600" height="300">
     - Manual Data Creation: To populate the dealership_id, sale_price, and sale_date where data was unavailable, SQL scripts were used to generate synthetic data. This SQL code creates a loop that iterates over the number of records in the cars table. Within each iteration, it generates a random integer between 1 and 8 and assigns it to the variable @i. Then, it updates the dealership_id column in the staging.cars table, setting it to the value of @i, but only for rows where car_id equals the current value of @Counter and dealership_id is equal to 9. Finally, it increments the counter @Counter by 1 to move to the next iteration. Essentially, it's assigning random dealership IDs to a subset of cars in the staging table, specifically for each dealership_id, in this case 9.
          
     ```sql
