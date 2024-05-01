@@ -143,7 +143,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 
 3. The sales_by_dealership View, provides a summary of sales by dealership. It joins the cars, sales, and dealerships tables to gather information about each sale, including the dealership_id, dealership_name, and total sales. The SUM() function is used to aggregate the sale_price, and the results are formatted as currency using the FORMAT() function.
 
-- <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/8cf8fe5a-219a-47f8-ab28-5c5cc946dab1" width="500" height="300">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/8cf8fe5a-219a-47f8-ab28-5c5cc946dab1" width="400" height="300">
 
 5. The car_inventory View, presents the list of cars from the 'cars' table along with their respective statuses. It combines two SELECT statements using UNION ALL: the first part retrieves cars that are currently in inventory by filtering out those whose IDs do not appear in the sales table, labeling them as 'In Inventory'. The second part retrieves sold cars by including only those whose IDs appear in the sales table, labeled as 'Sold'. The resulting view provides a consolidated overview of car inventory status.
 
