@@ -15,12 +15,6 @@ WHERE dbo.SALES.SALE_ID = @paramSaleID
 ;
 GO
 
--- execute the stored procedure with various parameters
-EXEC dbo.uspShowSalePriceBySaleID 22;
-GO
-EXEC dbo.uspShowSalePriceBySaleID 172;
-GO
-
 --uspTotalsBySalesPerson stored procedure
   
 CREATE OR ALTER PROCEDURE dbo.uspTotalsBySalesPerson
