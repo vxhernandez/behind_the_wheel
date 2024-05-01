@@ -158,7 +158,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
    Then, it creates the trigger CustomerChangeLog, specifying that it should execute AFTER INSERT on the customers table. Inside the trigger, it inserts the relevant information (CustomerID, CustomerFN, CustomerLN, and current timestamp) into the customer_audit table using the INSERTED pseudo-table to access the newly inserted rows.
    After setting up the trigger, the script retrieves existing data from the CUSTOMERS table to demonstrate its contents and then queries the customer_audit table to display the audit log entries. Finally, it retrieves all triggers in the database using the sys.triggers system view.
 
-    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/eda7a5d8-7a0d-4c30-a527-79bde010ba00" width="400" height="200">
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/eda7a5d8-7a0d-4c30-a527-79bde010ba00" width="400" height="100">
 
 2. The SalesChangeLogTrigger on the sales table is set to fire for INSERT, UPDATE, or DELETE operation.
    The trigger checks if there are any rows affected by the operation in the "inserted" pseudo table. If so, it further checks if there are rows affected by the operation in the "deleted" pseudo table. Based on these checks, it inserts records into the SalesChangeLog table to log the changes made to the sales data.
