@@ -107,6 +107,8 @@ By following this roadmap, I was able to systematically progress through each st
             WHERE cars.car_ID = sales.car_id);
         
      ```
+   - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/3f9affa6-cde9-40c8-84c8-9b38bbb3e9bd" width="600" height="300">
+    
     - Staging Database: All aforementioned processes were performed within a staging database.
     - Migration to Target Database: Once data was cleansed and transformed in the staging database, it was migrated to the target database for analysis using SQL queries.
 
