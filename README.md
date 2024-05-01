@@ -181,5 +181,8 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 
 3. The uspTotalsBySalesPerson stored procedure, retrieves sales information for a particular salesperson identified by their sales_person_id. It displays details such as the salesperson's ID, dealership, vehicle make and model, vehicle color, MSRP, sale price (formatted as currency), total sales (formatted as currency), and date of sale. The sales information is filtered based on the provided sales_person_id parameter, showing only the sales attributed to that salesperson.  It also allows users to input either the sales_person_id or the last_name of the salesperson. It includes default values of NULL for both parameters, enabling users to optionally provide either one or both parameters. If both parameters are NULL, the procedure raises an error and displays a custom error message, preventing accidental retrieval of data for all salespeople. This provides more flexibility in querying sales information based on either the salesperson ID or their last name.
 
+    - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/2e9615dc-94e7-4b1a-91ea-6a3f8739b264" width="400" height="150">
+
+
 [STORED PROCEDURES - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/stored_procedures.sql) 
 
