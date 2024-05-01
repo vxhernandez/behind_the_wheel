@@ -155,7 +155,7 @@ In part II, I implemented advanced SQL programming concepts to enhance data anal
 
     - <img src="https://github.com/vxhernandez/behind_the_wheel/assets/109702488/e99f8623-b610-4056-bcff-4cece91da0e1" width="400" height="300">
 
-[Views - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
+[VIEWS - link to code](https://github.com/vxhernandez/behind_the_wheel/blob/main/Views.sql)
 
 **Triggers**
 
