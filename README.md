@@ -11,12 +11,11 @@ This repository serves as a showcase of my experience in database management, an
 - **Data Cleansing and ETL:** Conducted data cleaning and ETL (Extract, Transform, Load) processes to prepare the data for analysis.
 - **Exploratory Data Analysis (EDA):** Analyzed the data to identify patterns, trends, and insights that drive decision-making.
 - **Tools and Technologies:**
-    - Notion.io for requirements analysis
-    - Lucidchart for designing the ERD and ETL Diagrams
     - SSIS/Visual Studios for the ETL processes
     - SQL Server for database creation/storage
     - Excel for data cleansing
     - Tableau for developing dashboard
+    - Lucidchart for designing the ERD and ETL Diagrams
 
 ### Roadmap for the project:
 
