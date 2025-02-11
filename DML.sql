@@ -209,17 +209,16 @@ WHERE (CAR_ID NOT IN(SELECT CAR_ID FROM SALES));
 --18. What are the top 5 selling cars?
 
 WITH TopCars AS (
-SELECT 
-c.year,
-c.make,
-c.model,
-COUNT(*) AS num_sales,
-ROW_NUMBER() OVER (PARTITION BY c.year ORDER BY COUNT(*) DESC) AS year_partition
-FROM sales s
-JOIN cars c 
-ON s.car_id = c.car_id
-GROUP BY c.year, c.make, c.model
-)
+	SELECT 
+	c.year,
+	c.make,
+	c.model,
+	COUNT(*) AS num_sales,
+	ROW_NUMBER() OVER (PARTITION BY c.year ORDER BY COUNT(*) DESC) AS year_partition
+	FROM sales s
+	JOIN cars c 
+	ON s.car_id = c.car_id
+	GROUP BY c.year, c.make, c.model)
 SELECT 
 year,
 make,
@@ -230,105 +229,104 @@ WHERE year IN (2022, 2023) AND year_partition <= 5;
 
 --19. Who were the top 10 sales people in 2023?
 
-WITH sales_people_CTE AS (
-    SELECT 
-    SALES_PERSON_ID AS SalesPersonId,
-    SUM(SALE_PRICE) AS TotalSales
-    FROM sales
-    WHERE sale_date >= '2023-01-01' AND sale_date < '2024-01-01'
-    GROUP BY SALES_PERSON_ID
-)
+WITH top_sales_people AS (
+	SELECT 
+	SALES_PERSON_ID,
+	SUM(SALE_PRICE) AS total_sales
+	FROM sales
+	WHERE sale_date >= '2023-01-01' AND sale_date < '2024-01-01'
+	GROUP BY SALES_PERSON_ID)
 SELECT 
-    a.*, CONCAT(b.last_name, ', ', b.first_name) AS SalesPersonName
-FROM 
-    sales_people_CTE a
-JOIN 
-    SALES_PEOPLE b ON a.SalesPersonId = b.SALES_PERSON_ID
-ORDER BY 
-    TotalSales DESC
-OFFSET 
-    0 ROWS
-FETCH NEXT 
-    10 ROWS ONLY;
+tsp.*, CONCAT(sp.last_name, ', ', sp.first_name) AS SalesPersonName
+FROM top_sales_people tsp
+JOIN SALES_PEOPLE sp 
+ON tsp.SALES_PERSON_ID = sp.SALES_PERSON_ID
+ORDER BY total_sales DESC
+OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
 
 --20. What are the number of cars sold by each dealership for each car maker?
 
-SELECT * FROM (
-    SELECT 
-    c.make, 
-    c.car_id,
-	d.DEALERSHIP_NAME
-FROM 
-    cars c
-	join DEALERSHIPS d
-		on c.DEALERSHIP_ID = d.DEALERSHIP_ID	
-) derived_table
 
-PIVOT(
-    COUNT(car_id) 
-    FOR make IN (
-        [Lexus],
-		[Jeep],
-		[Bmw],
-		[Audi],
-		[Infiniti],
-		[Acura],
-		[Cadillac],
-		[Nissan],
-		[Chevrolet]
-        )
-) AS pivot_table
+SELECT * FROM 
+(SELECT c.make, c.car_id, d.DEALERSHIP_NAME FROM cars c
+join DEALERSHIPS d
+on c.DEALERSHIP_ID = d.DEALERSHIP_ID) derived_table
+PIVOT(COUNT(car_id) 
+FOR make IN (
+[Lexus],
+[Jeep],
+[Bmw],
+[Audi],
+[Infiniti],
+[Acura],
+[Cadillac],
+[Nissan],
+[Chevrolet])) AS pivot_table
 ORDER BY DEALERSHIP_name;
 	
 --21. Are there any salespeople with total sales over 1 million?
 
-SELECT a.SALES_PERSON_ID, { fn CONCAT(a.LAST_NAME, ', ', a.FIRST_NAME) } AS 'Sales Person', b. 'Total Sales'
-FROM  SALES_PEOPLE AS a INNER JOIN
-             (SELECT SALES_PERSON_ID, SUM(SALE_PRICE) AS 'Total Sales'
-           FROM   SALES
-           GROUP BY SALES_PERSON_ID
-           HAVING (SUM(SALE_PRICE) > 1000000.00)) AS b ON a.SALES_PERSON_ID = b.SALES_PERSON_ID;
+SELECT 
+sp.SALES_PERSON_ID, 
+CONCAT(sp.LAST_NAME, ', ', sp.FIRST_NAME) AS sales_person, 
+ts.total_sales
+FROM SALES_PEOPLE sp
+JOIN (
+	SELECT 
+	SALES_PERSON_ID, 
+	SUM(SALE_PRICE) AS total_sales
+	FROM SALES
+	GROUP BY SALES_PERSON_ID
+	HAVING SUM(SALE_PRICE) > 1000000.00
+) ts 
+ON sp.SALES_PERSON_ID = ts.SALES_PERSON_ID;
 
 --22. What are the total sales by customer zip code?
 
-SELECT TOP (10) a.POSTAL_CODE, COUNT(a.CUSTOMER_ID) AS count_customers
-FROM  CUSTOMERS AS a INNER JOIN
-         SALES AS b ON a.CUSTOMER_ID = b.CUSTOMER_ID
-GROUP BY a.POSTAL_CODE
+SELECT TOP (10) 
+c.POSTAL_CODE, 
+COUNT(c.CUSTOMER_ID) AS count_customers
+FROM  CUSTOMERS AS c 
+JOIN SALES AS s 
+ON c.CUSTOMER_ID = s.CUSTOMER_ID
+GROUP BY c.POSTAL_CODE
 ORDER BY count_customers DESC;
 	
 --23. What is the percentrage of customers with repeat purchases?
 
 SELECT 
-    COUNT(*) AS TotalCustomers,
-    SUM(CASE WHEN NumCarsPurchased > 1 THEN 1 ELSE 0 END) AS CustomersWithMultiplePurchases,
-    (SUM(CASE WHEN NumCarsPurchased > 1 THEN 1 ELSE 0 END) * 100.0) / COUNT(*) AS Percentage
+COUNT(*) AS total_customers,
+SUM(CASE 
+	WHEN cars_purchased > 1 THEN 1 
+	ELSE 0 
+	END) AS multiple_purchases,
+SUM(CASE 
+	WHEN cars_purchased > 1 THEN 1 
+	ELSE 0 
+	END) * 100.0 / COUNT(*) AS Percentage
 FROM (
-    SELECT 
-        CUSTOMER_ID,
-        COUNT(*) AS NumCarsPurchased
-    FROM 
-        sales
-    GROUP BY 
-        CUSTOMER_ID
-) AS CustomerPurchases;
+	SELECT 
+	CUSTOMER_ID,
+	COUNT(*) AS cars_purchased
+	FROM sales
+	GROUP BY CUSTOMER_ID
+) AS customer_purchases;
 	
 --24. What is the total purchase amount by zip code?
 
 select
-a.POSTAL_CODE,
-sum(b.sale_price) as customer_totals,
-sum(b.SALE_PRICE)/ (select sum(SALE_PRICE) from sales) * 100 as percent_of_sales
-from customers a
-join sales b on a.customer_id = b.customer_id
-group by a.POSTAL_CODE
+c.POSTAL_CODE,
+sum(s.sale_price) as customer_totals,
+sum(s.SALE_PRICE) / (select sum(SALE_PRICE) from sales) * 100 as percent_of_sales
+from customers c
+join sales s 
+on c.customer_id = s.customer_id
+group by c.POSTAL_CODE
 order by customer_totals DESC
-OFFSET 
-    0 ROWS
-FETCH NEXT 
-    10 ROWS ONLY;
+OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
 
 --25. What is the total sales amount across all dealerships?
 
-SELECT SUM(SALE_PRICE) AS total_revenue
-FROM  SALES;
+SELECT 
+SUM(SALE_PRICE) AS total_revenue
+FROM SALES;
